@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tobi | Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+<div id="splash-screen">
+  <span class="splash-name">Oluwatobi</span>
+</div>
+<div class="cursor-icons">
+  <div class="cursor-icon cursor-figma" style="display:block;">
+    <svg width="32" height="48" viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="16" height="16" rx="8" fill="#F24E1E"/>
+      <rect x="0" y="16" width="16" height="16" rx="8" fill="#A259FF"/>
+      <rect x="0" y="32" width="16" height="16" rx="8" fill="#1ABCFE"/>
+      <rect x="16" y="0" width="16" height="16" rx="8" fill="#FF7262"/>
+      <rect x="16" y="16" width="16" height="16" rx="8" fill="#0ACF83"/>
+    </svg>
+  </div>
+  <div class="cursor-icon cursor-flutter" style="display:none;">
+    <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter logo" width="40" height="40" />
+  </div>
+</div>
+
+<header>
+  <nav>
+    <h1 class="logo">Oluwatobi<span>.</span></h1>
+    <button class="hamburger" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="cv.pdf" download class="btn">Download&nbsp;CV</a></li>
+    </ul>
+    <button id="themeToggle" aria-label="Toggle theme">🌞</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <img src="1.jpg" alt="Tobi portrait" class="profile-pic">
+    <div class="intro">
+      <h2 class="glitch" data-text="I Design Magic">I Design Magic</h2>
+      <p>UI/UX • Brand • Front‑end</p>
+      <a href="#contact" class="btn primary">Let's work</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <h2>Services</h2>
+  <div class="cards">
+    <article class="card"><h3>UI/UX Design</h3><p>Designs that delight users and make every click feel effortless.</p></article>
+    <article class="card"><h3>Brand Identity</h3><p>Crafting memorable brands that people instantly recognize and love.</p></article>
+    <article class="card"><h3>Web Development</h3><p>Building fast, beautiful websites that work everywhere, every time.</p></article>
+  </div>
+</section>
+
+<section id="projects" class="section alt">
+  <h2>Past Projects</h2>
+  <div class="filter">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="web">Web Design</button>
+    <button class="filter-btn" data-cat="uiux">UI/UX</button>
+  </div>
+  <div class="project-grid">
+    <article class="project-card" data-cat="web" 
+      data-title="SpendMirror" 
+      data-desc="AI-driven dashboard that turns digital receipts into spending insights." 
+      data-link="https://github.com/username/spendmirror"
+      style="background-image:url('https://source.unsplash.com/random/800x600?finance');"></article>
+
+    <article class="project-card" data-cat="uiux"
+      data-title="GreenVoice" 
+      data-desc="Civic engagement platform connecting Nigerian communities with local governments." 
+      data-link="https://www.behance.net/gallery/000000/GreenVoice-App-Design"
+      style="background-image:url('https://source.unsplash.com/random/800x600?civic');"></article>
+
+    <article class="project-card" data-cat="web"
+      data-title="DLCF AUL" 
+      data-desc="Campus fellowship website built from scratch with dynamic events section." 
+      data-link="https://github.com/username/dlcf-site"
+      style="background-image:url('https://source.unsplash.com/random/800x600?church');"></article>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <h2>Experience</h2>
+  <ul class="timeline">
+    <li>
+      <span>2025</span>
+      <div class="content">
+        <h3>Brand Designer – RaLBW</h3>
+        <p>Grew online presence by 150% through design‑led strategy.</p>
+      </div>
+    </li>
+    <li>
+      <span>2024</span>
+      <div class="content">
+        <h3>FlutterBytes Hackathon Winner</h3>
+        <p>Built GreenVoice civic platform in 36 h.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="contact" class="section alt">
+  <h2>Contact Me</h2>
+  <form id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="_replyto" placeholder="Email" required>
+    <textarea name="message" rows="4" placeholder="Tell me about your project…"></textarea>
+    <button type="submit" class="btn primary">Send 🚀</button>
+  </form>
+  <div class="socials">
+    <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="mailto:your@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+</section>
+
+<footer>
+  <div class="socials">
+    <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="mailto:your@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>&copy; 2025 Oluwatobi. Building with heart. Designing with purpose.</p>
+</footer>
+
+<!-- Project Modal -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <a id="modalLink" href="#" target="_blank" rel="noopener" class="btn primary">See Project ↗</a>
+  </div>
+</div>
+
+</body>
+</html>
