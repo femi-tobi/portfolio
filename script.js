@@ -52,11 +52,30 @@ document.addEventListener('mousemove', (e) => {
   mouseY = e.clientY;
 });
 
+const nav = document.querySelector('nav');
+
+function isCursorOverNav() {
+  if (!nav) return false;
+  const navRect = nav.getBoundingClientRect();
+  return (
+    mouseX >= navRect.left &&
+    mouseX <= navRect.right &&
+    mouseY >= navRect.top &&
+    mouseY <= navRect.bottom
+  );
+}
+
 function animateCursorIcon() {
   currentX += (mouseX - currentX) * 0.18;
   currentY += (mouseY - currentY) * 0.18;
   rotation += 1.5; // degrees per frame
   cursorIcons.style.transform = `translate(${currentX - 24}px, ${currentY - 24}px) rotate(${rotation}deg)`;
+  // Hide cursor icon if it overlaps nav
+  if (isCursorOverNav() && (figmaIcon.style.display === 'block' || flutterIcon.style.display === 'block')) {
+    cursorIcons.classList.add('cursor-hidden');
+  } else {
+    cursorIcons.classList.remove('cursor-hidden');
+  }
   requestAnimationFrame(animateCursorIcon);
 }
 animateCursorIcon();

@@ -42,6 +42,11 @@ nav{
   margin: 0 auto;
   min-height: 64px;
 }
+nav.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -383,6 +388,11 @@ footer {
 .cursor-icon[style*="display:block"] {
   display: block;
 }
+.cursor-icons.cursor-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
 /* Download CV button hover: make text white */
 .nav-links .btn:hover,
 .btn.primary:hover,
@@ -454,4 +464,80 @@ footer {
 #splash-screen.splash-hide {
   opacity: 0;
   pointer-events: none;
+}
+
+#experience {
+  background: none;
+  padding: 4rem 2rem 2rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.timeline {
+  position: relative;
+  margin: 2rem 0 0 0;
+  padding-left: 0;
+  border-left: none;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--card-bg);
+  border: 3px solid var(--brand);
+  border-radius: 50%;
+  margin-right: 24px;
+  margin-top: 8px;
+  box-shadow: 0 0 16px 2px var(--brand), var(--shadow);
+  z-index: 1;
+  transition: box-shadow 0.3s;
+}
+
+.timeline-date {
+  font-weight: 700;
+  color: var(--brand);
+  background: var(--card-bg);
+  border-radius: 50%;
+  padding: 0.5rem 1rem;
+  margin-right: 24px;
+  font-size: 1rem;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  top: 0;
+  border: 1.5px solid var(--brand);
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  min-width: 220px;
+  max-width: 400px;
+  border-left: 4px solid var(--brand);
+  transition: box-shadow 0.3s;
+}
+
+.timeline-content h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.85;
+  color: var(--text);
 }

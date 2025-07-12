@@ -42,15 +42,15 @@ Skills
 - HTML5, CSS3, JavaScript (ES6+)
 - Responsive Web Design
 - Version Control (Git)
-- [Add your other skills here, e.g., React, Node.js, Python, etc.]
+- Ui/Ux design(figma)
 
 Contact
 
 Feel free to reach out for collaboration or inquiries:
 
-- Email: [your.email@example.com]
-- LinkedIn: [https://www.linkedin.com/in/yourprofile](https://www.linkedin.com/in/yourprofile)
-- Portfolio Website: [https://your-portfolio-link.com](https://your-portfolio-link.com)
+- Email: [adefemioluwatobi13@gmail.com]
+- LinkedIn: [https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BGcFMqvjbTmmAem8%2Bvzjs4g%3D%3D]
+- Portfolio Website: [https://www.behance.net/adefemioluwato]
 
 Deployment
 
