@@ -177,3 +177,56 @@ function setSkillProgressEvents() {
   });
 }
 document.addEventListener('DOMContentLoaded', setSkillProgressEvents);
+
+// Testimonials slider logic
+function initTestimonialSlider() {
+  const cards = document.querySelectorAll('.testimonial-card');
+  const leftBtn = document.querySelector('.testimonial-arrow.left');
+  const rightBtn = document.querySelector('.testimonial-arrow.right');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  let current = 0;
+  function show(idx) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === idx);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === idx);
+    });
+  }
+  function prev() {
+    current = (current - 1 + cards.length) % cards.length;
+    show(current);
+  }
+  function next() {
+    current = (current + 1) % cards.length;
+    show(current);
+  }
+  if (leftBtn && rightBtn) {
+    leftBtn.addEventListener('click', prev);
+    rightBtn.addEventListener('click', next);
+  }
+  // Dots click
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      current = i;
+      show(current);
+    });
+  });
+  // Swipe support for mobile
+  let startX = null;
+  const slider = document.querySelector('.testimonial-cards');
+  if (slider) {
+    slider.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+    slider.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 40) prev();
+      else if (startX - endX > 40) next();
+      startX = null;
+    });
+  }
+  show(current);
+}
+document.addEventListener('DOMContentLoaded', initTestimonialSlider);
