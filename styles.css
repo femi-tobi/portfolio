@@ -349,6 +349,12 @@ footer {
   .socials {
     gap: 0.7rem;
   }
+  .hero .btn.primary {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
 @media (max-width: 500px) {
   .logo {

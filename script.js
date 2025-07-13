@@ -133,3 +133,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1700);
   }
 });
+
+// Scroll-to-top button logic
+const scrollToTopBtn = document.getElementById('scrollToTop');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 200) {
+    scrollToTopBtn.style.display = 'flex';
+    scrollToTopBtn.style.opacity = '1';
+  } else {
+    scrollToTopBtn.style.opacity = '0';
+    setTimeout(() => {
+      if (window.scrollY <= 200) scrollToTopBtn.style.display = 'none';
+    }, 300);
+  }
+});
+scrollToTopBtn.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
