@@ -547,3 +547,76 @@ footer {
   opacity: 0.85;
   color: var(--text);
 }
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  justify-items: center;
+  align-items: center;
+}
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  gap: 0.7rem;
+}
+.skill-item i, .skill-item svg {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #6C63FF;
+}
+@media (max-width: 700px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.2rem;
+  }
+  .skill-item i, .skill-item svg {
+    font-size: 2rem;
+  }
+}
+
+/* Skill Progress Bar */
+.skill-progress {
+  width: 100%;
+  height: 7px;
+  background: #e0e7ff;
+  border-radius: 4px;
+  margin-top: 0.7rem;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.skill-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--brand-gradient);
+  border-radius: 4px;
+  transition: width 0.7s cubic-bezier(.4,0,.2,1);
+}
+.skill-item:hover .skill-progress,
+.skill-item:focus .skill-progress,
+.skill-item.touch-active .skill-progress {
+  opacity: 1;
+}
+.skill-item:hover .skill-progress-bar,
+.skill-item:focus .skill-progress-bar,
+.skill-item.touch-active .skill-progress-bar {
+  width: attr(data-skill '%'); /* fallback for browsers that support it */
+}
+
+/* Fallback for browsers that don't support attr() in width */
+.skill-item[data-skill] .skill-progress-bar {
+  width: 0;
+}
+.skill-item.show-progress .skill-progress {
+  opacity: 1;
+}
+.skill-item.show-progress .skill-progress-bar {
+  width: var(--skill-width, 0%);
+}

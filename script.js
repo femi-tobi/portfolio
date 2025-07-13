@@ -150,3 +150,30 @@ window.addEventListener('scroll', function() {
 scrollToTopBtn.addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Skill progress bar animation
+function setSkillProgressEvents() {
+  const skillItems = document.querySelectorAll('.skill-item[data-skill]');
+  skillItems.forEach(item => {
+    const percent = item.getAttribute('data-skill') + '%';
+    item.style.setProperty('--skill-width', percent);
+    // Desktop hover
+    item.addEventListener('mouseenter', () => {
+      item.classList.add('show-progress');
+    });
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('show-progress');
+    });
+    // Mobile tap
+    item.addEventListener('touchstart', () => {
+      skillItems.forEach(i => i.classList.remove('show-progress'));
+      item.classList.add('show-progress');
+    });
+    document.body.addEventListener('touchstart', (e) => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('show-progress');
+      }
+    }, { passive: true });
+  });
+}
+document.addEventListener('DOMContentLoaded', setSkillProgressEvents);
