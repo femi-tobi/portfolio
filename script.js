@@ -279,20 +279,22 @@ if (showFormBtn && testimonialForm) {
     testimonialForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
-// Imgur anonymous upload client ID
-const IMGUR_CLIENT_ID = '546f6b6e0b1b7b7'; // public demo client ID
+// Cloudinary unsigned upload
+const CLOUDINARY_CLOUD_NAME = 'dyhj9fvww';
+const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+const CLOUDINARY_UPLOAD_PRESET = 'portfolio_unsigned';
 
-async function uploadToImgur(file) {
+async function uploadToCloudinary(file) {
   const formData = new FormData();
-  formData.append('image', file);
-  const res = await fetch('https://api.imgur.com/3/image', {
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  const res = await fetch(CLOUDINARY_UPLOAD_URL, {
     method: 'POST',
-    headers: { Authorization: 'Client-ID ' + IMGUR_CLIENT_ID },
     body: formData
   });
   const data = await res.json();
-  if (data.success && data.data && data.data.link) {
-    return data.data.link;
+  if (data.secure_url) {
+    return data.secure_url;
   } else {
     throw new Error('Image upload failed');
   }
@@ -315,7 +317,7 @@ if (testimonialForm) {
     if (photoInput && photoInput.files && photoInput.files[0]) {
       msgDiv.textContent = 'Uploading photo...';
       try {
-        photoUrl = await uploadToImgur(photoInput.files[0]);
+        photoUrl = await uploadToCloudinary(photoInput.files[0]);
       } catch (err) {
         msgDiv.textContent = 'Photo upload failed. Please try again or use a smaller image.';
         return;
