@@ -739,6 +739,12 @@ footer {
   color: #6C63FF;
   font-size: 1.08rem;
 }
+.testimonial-role {
+  margin-top: 0.2rem;
+  font-size: 0.98rem;
+  color: #b0b8d1;
+  font-style: italic;
+}
 .testimonial-arrow {
   background: var(--brand-gradient);
   color: #fff;
@@ -794,4 +800,52 @@ footer {
 .testimonial-dot.active {
   background: #6C63FF;
   transform: scale(1.2);
+}
+
+.testimonial-form {
+  margin: 2.2rem auto 0 auto;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  background: var(--card-bg);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  align-items: stretch;
+}
+.testimonial-form h3 {
+  text-align: center;
+  color: #6C63FF;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.testimonial-form input,
+.testimonial-form textarea {
+  padding: 0.9rem 1.1rem;
+  border: 1.5px solid var(--brand);
+  border-radius: 8px;
+  font-size: 1.08rem;
+  background: var(--bg);
+  color: var(--text);
+  transition: border 0.3s, box-shadow 0.3s;
+  font-family: inherit;
+}
+.testimonial-form input:focus,
+.testimonial-form textarea:focus {
+  outline: none;
+  border-color: #6C63FF;
+  box-shadow: 0 0 0 2px rgba(108,99,255,0.13);
+}
+.testimonial-form button.btn.primary {
+  margin-top: 0.7rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(63,142,252,0.10);
+  background: var(--brand-gradient);
+}
+.testimonial-form button.btn.primary:hover {
+  background: linear-gradient(90deg,#6C63FF 0%,#3F8EFC 100%);
+  transform: translateY(-2px) scale(1.03);
 }

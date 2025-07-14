@@ -230,3 +230,113 @@ function initTestimonialSlider() {
   show(current);
 }
 document.addEventListener('DOMContentLoaded', initTestimonialSlider);
+
+// SheetDB API endpoint for testimonials
+const SHEETDB_API = 'https://sheetdb.io/api/v1/i4h5uoi3cpbn1';
+
+function renderTestimonials(testimonials) {
+  const cardsContainer = document.querySelector('.testimonial-cards');
+  const dotsContainer = document.querySelector('.testimonial-dots');
+  if (!cardsContainer || !dotsContainer) return;
+  cardsContainer.innerHTML = '';
+  dotsContainer.innerHTML = '';
+  testimonials.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card' + (i === 0 ? ' active' : '');
+    card.innerHTML = `
+      <div class="testimonial-avatar"><img src="${t.Photo || 'avatar.jpg'}" alt="${t.Name || 'Client'}" /></div>
+      <blockquote>"${t.Testimonial || ''}"</blockquote>
+      <div class="testimonial-name">${t.Name || ''}</div>
+      <div class="testimonial-role">${t.Role || ''}</div>
+    `;
+    cardsContainer.appendChild(card);
+    const dot = document.createElement('span');
+    dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    dotsContainer.appendChild(dot);
+  });
+  // Re-init slider logic
+  initTestimonialSlider();
+}
+
+function fetchTestimonials() {
+  fetch(SHEETDB_API)
+    .then(res => res.json())
+    .then(data => {
+      renderTestimonials(data);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', fetchTestimonials);
+
+// Handle testimonial form submission
+const testimonialForm = document.getElementById('testimonialForm');
+// Show/hide testimonial form logic
+const showFormBtn = document.getElementById('showTestimonialForm');
+if (showFormBtn && testimonialForm) {
+  showFormBtn.addEventListener('click', function() {
+    testimonialForm.style.display = 'flex';
+    showFormBtn.style.display = 'none';
+    testimonialForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+// Imgur anonymous upload client ID
+const IMGUR_CLIENT_ID = '546f6b6e0b1b7b7'; // public demo client ID
+
+async function uploadToImgur(file) {
+  const formData = new FormData();
+  formData.append('image', file);
+  const res = await fetch('https://api.imgur.com/3/image', {
+    method: 'POST',
+    headers: { Authorization: 'Client-ID ' + IMGUR_CLIENT_ID },
+    body: formData
+  });
+  const data = await res.json();
+  if (data.success && data.data && data.data.link) {
+    return data.data.link;
+  } else {
+    throw new Error('Image upload failed');
+  }
+}
+
+if (testimonialForm) {
+  testimonialForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = document.getElementById('testimonialName').value.trim();
+    const role = document.getElementById('testimonialRole').value.trim();
+    const testimonial = document.getElementById('testimonialText').value.trim();
+    const photoInput = document.getElementById('testimonialPhoto');
+    const msgDiv = document.getElementById('testimonialFormMsg');
+    msgDiv.textContent = '';
+    if (!name || !testimonial) {
+      msgDiv.textContent = 'Please fill in your name and testimonial.';
+      return;
+    }
+    let photoUrl = '';
+    if (photoInput && photoInput.files && photoInput.files[0]) {
+      msgDiv.textContent = 'Uploading photo...';
+      try {
+        photoUrl = await uploadToImgur(photoInput.files[0]);
+      } catch (err) {
+        msgDiv.textContent = 'Photo upload failed. Please try again or use a smaller image.';
+        return;
+      }
+    }
+    const payload = { Name: name, Role: role, Testimonial: testimonial, Photo: photoUrl };
+    fetch(SHEETDB_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(res => res.json())
+      .then(() => {
+        msgDiv.textContent = 'Thank you for your testimonial!';
+        testimonialForm.reset();
+        testimonialForm.style.display = 'none';
+        if (showFormBtn) showFormBtn.style.display = 'block';
+        fetchTestimonials();
+      })
+      .catch(() => {
+        msgDiv.textContent = 'There was an error submitting your testimonial.';
+      });
+  });
+}

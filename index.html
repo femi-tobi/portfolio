@@ -292,6 +292,16 @@
     </div>
     <button class="testimonial-arrow right" aria-label="Next testimonial">&#8594;</button>
   </div>
+  <button id="showTestimonialForm" class="btn primary" style="display:block;margin:1.5rem auto 0 auto;">Add Testimonial</button>
+  <form id="testimonialForm" class="testimonial-form" style="display:none;">
+    <h3>Share your experience</h3>
+    <input type="text" name="name" id="testimonialName" placeholder="Your name" required>
+    <input type="text" name="role" id="testimonialRole" placeholder="Your role or job title (optional)">
+    <textarea name="testimonial" id="testimonialText" placeholder="Your testimonial" required></textarea>
+    <input type="file" accept="image/*" name="photo" id="testimonialPhoto" placeholder="Photo (optional)">
+    <button type="submit" class="btn primary">Submit Testimonial</button>
+    <div id="testimonialFormMsg" style="margin-top:0.7em;font-size:1em;"></div>
+  </form>
 </section>
 
 <section id="contact" class="section alt">
