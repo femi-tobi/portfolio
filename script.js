@@ -238,8 +238,11 @@ function renderTestimonials(testimonials) {
   const cardsContainer = document.querySelector('.testimonial-cards');
   const dotsContainer = document.querySelector('.testimonial-dots');
   if (!cardsContainer || !dotsContainer) return;
-  cardsContainer.innerHTML = '';
+
+  // Remove only .testimonial-card elements, keep arrows
+  Array.from(cardsContainer.querySelectorAll('.testimonial-card')).forEach(card => card.remove());
   dotsContainer.innerHTML = '';
+
   testimonials.forEach((t, i) => {
     const card = document.createElement('div');
     card.className = 'testimonial-card' + (i === 0 ? ' active' : '');
@@ -249,11 +252,18 @@ function renderTestimonials(testimonials) {
       <div class="testimonial-name">${t.Name || ''}</div>
       <div class="testimonial-role">${t.Role || ''}</div>
     `;
-    cardsContainer.appendChild(card);
+    // Insert after left arrow if present, else at start
+    const leftArrow = cardsContainer.querySelector('.testimonial-arrow.left');
+    if (leftArrow && cardsContainer.children.length > 0) {
+      cardsContainer.insertBefore(card, leftArrow.nextSibling);
+    } else {
+      cardsContainer.appendChild(card);
+    }
     const dot = document.createElement('span');
     dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
     dotsContainer.appendChild(dot);
   });
+
   // Re-init slider logic
   initTestimonialSlider();
 }

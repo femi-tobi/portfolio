@@ -682,19 +682,20 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 3;
 }
 .testimonial-arrow.left {
-  left: -60px;
+  left: 0.5rem;
 }
 .testimonial-arrow.right {
-  right: -60px;
+  right: 0.5rem;
 }
 @media (max-width: 700px) {
   .testimonial-arrow.left {
-    left: -30px;
+    left: 0.1rem;
   }
   .testimonial-arrow.right {
-    right: -30px;
+    right: 0.1rem;
   }
 }
 .testimonial-card {
@@ -746,7 +747,7 @@ footer {
   font-style: italic;
 }
 .testimonial-arrow {
-  background: var(--brand-gradient);
+  background: #3F8EFC;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -762,7 +763,7 @@ footer {
   z-index: 10;
 }
 .testimonial-arrow:hover {
-  background: linear-gradient(90deg,#6C63FF 0%,#3F8EFC 100%);
+  background: #6C63FF;
   transform: scale(1.08);
 }
 @media (max-width: 700px) {
