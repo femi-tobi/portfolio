@@ -352,3 +352,50 @@ if (testimonialForm) {
       });
   });
 }
+
+// Graphics subfilter logic
+(function(){
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const graphicsSubfilter = document.querySelector('.graphics-subfilter');
+  const graphicsSubBtns = document.querySelectorAll('.graphics-subfilter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  function showGraphicsSubfilter(show) {
+    if (graphicsSubfilter) graphicsSubfilter.style.display = show ? 'flex' : 'none';
+  }
+
+  // Show/hide graphics subfilter on main filter click
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (btn.dataset.cat === 'graphics') {
+        showGraphicsSubfilter(true);
+      } else {
+        showGraphicsSubfilter(false);
+        // Reset subfilter to 'all' when leaving graphics
+        graphicsSubBtns.forEach(b => b.classList.remove('active'));
+        graphicsSubBtns[0].classList.add('active');
+      }
+    });
+  });
+
+  // Graphics subfilter click logic
+  graphicsSubBtns.forEach(subBtn => {
+    subBtn.addEventListener('click', function() {
+      graphicsSubBtns.forEach(b => b.classList.remove('active'));
+      subBtn.classList.add('active');
+      const type = subBtn.dataset.graphicType;
+      projectCards.forEach(card => {
+        if (card.dataset.cat !== 'graphics') return;
+        if (type === 'all' || card.dataset.graphicType === type) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // On page load, hide subfilter unless graphics is active
+  const activeMain = document.querySelector('.filter-btn.active');
+  showGraphicsSubfilter(activeMain && activeMain.dataset.cat === 'graphics');
+})();
