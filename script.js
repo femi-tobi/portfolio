@@ -450,3 +450,43 @@ if (testimonialForm) {
   const activeMain = document.querySelector('.filter-btn.active');
   showGraphicsSubfilter(activeMain && activeMain.dataset.cat === 'graphics');
 })();
+
+// Services Accordion Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    
+    header.addEventListener('click', () => {
+      // Check if this item is already active
+      const isActive = item.classList.contains('active');
+      
+      // Close all items
+      accordionItems.forEach(acc => {
+        acc.classList.remove('active');
+        const body = acc.querySelector('.accordion-body');
+        if (body) body.style.display = 'none';
+      });
+      
+      // If it wasn't active, open it
+      if (!isActive) {
+        item.classList.add('active');
+        const body = item.querySelector('.accordion-body');
+        if (body) {
+          body.style.display = 'block';
+          // Small animation effect using anime.js if available, or just CSS
+          if (typeof anime !== 'undefined') {
+            anime({
+              targets: body,
+              opacity: [0, 1],
+              translateY: [-10, 0],
+              duration: 400,
+              easing: 'easeOutQuad'
+            });
+          }
+        }
+      }
+    });
+  });
+});
