@@ -1107,6 +1107,12 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
 }
 
 @media (max-width: 900px) {
+  /* Navigation */
+  .letstalk-btn {
+    display: none; /* Hide Let's Talk button on smaller screens to make room for hamburger */
+  }
+  
+  /* Contact & FAQ */
   .contact-split {
     flex-direction: column;
   }
@@ -1119,9 +1125,103 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   }
   .faq-redesign {
     flex-direction: column;
+    gap: 2.5rem;
   }
   .faq-header-left, .faq-accordion-right {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Sections General */
+  .projects-redesign, .contact-redesign, .faq-redesign {
+    padding: 4rem 1rem 3rem 1rem;
+  }
+  
+  /* Projects */
+  .projects-main-title h2 {
+    font-size: 2.2rem;
+  }
+  .projects-small-title {
+    font-size: 2rem;
+  }
+  .card-title {
+    font-size: 1.6rem;
+  }
+  .card-desc {
+    font-size: 0.95rem;
+  }
+  .card-text-box {
+    padding: 1.5rem;
+  }
+  
+  /* CTA Banner */
+  .cta-banner {
+    padding: 4rem 1rem;
+    margin: 2rem 1rem;
+    border-radius: 1rem;
+  }
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+  .cta-floating-pills {
+    display: none; /* Hide floating pills on mobile to prevent overlap/clutter */
+  }
+  
+  /* Contact & Info Card */
+  .contact-header h2 {
+    font-size: 2.2rem;
+  }
+  .info-card {
+    padding: 2rem 1.5rem;
+  }
+  .info-social-footer {
+    padding: 1.2rem 1.5rem;
+    margin: 0 -1.5rem -2rem -1.5rem;
+  }
+  
+  /* FAQ */
+  .faq-header-left h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .faq-ask-card {
+    padding: 1.5rem;
+  }
+  .faq-ask-card h3 {
+    font-size: 1.3rem;
+  }
+  .faq-item-header {
+    padding: 1.2rem 1.5rem;
+  }
+  .faq-item-header h4 {
+    font-size: 1.1rem;
+  }
+  .faq-item-body {
+    padding: 0 1.5rem 1.2rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Very small screens */
+  .projects-main-title h2, .contact-header h2, .faq-header-left h2 {
+    font-size: 1.8rem;
+  }
+  .logo-new {
+    font-size: 1.1rem;
+  }
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .logo-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .theme-btn-new {
+    width: 36px;
+    height: 36px;
   }
 }
 /* Social Icons */

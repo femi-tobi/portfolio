@@ -1,740 +1,804 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-<meta name="google-site-verification" content="SQBF7Vd_hb5toH0SYZ9PllSjdTsXN4FfBdRsuvdjSWg" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio of Adefemi Oluwatobi, a creative UI/UX and Web Designer. View projects, case studies, and contact info.">
-<title>Adefemi oluwatobi</title>
+  <meta name="google-site-verification" content="SQBF7Vd_hb5toH0SYZ9PllSjdTsXN4FfBdRsuvdjSWg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio of Adefemi Oluwatobi, a creative UI/UX and Web Designer. View projects, case studies, and contact info.">
+  <title>Adefemi oluwatobi</title>
 
-<!-- Favicon -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233F8EFC'/><text x='50' y='65' font-size='40' font-family='Arial, sans-serif' text-anchor='middle' fill='white' font-weight='bold'>AO</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233F8EFC'/><text x='50' y='65' font-size='40' font-family='Arial, sans-serif' text-anchor='middle' fill='white' font-weight='bold'>AO</text></svg>">
 
-<!-- Vercel Analytics -->
-<script defer src="/_vercel/insights/script.js"></script>
+  <!-- Vercel Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 
-<!-- Vercel Speed Insights -->
-<script defer src="/_vercel/speed-insights/script.js"></script>
+  <!-- Vercel Speed Insights -->
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
-<script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-<div id="splash-screen">
-  <span class="splash-name">Oluwatobi</span>
-</div>
-<div id="welcome-modal" class="welcome-modal" style="display:none;">
-  <div class="welcome-content">
-    <h2>What are you looking for today?</h2>
-    <div class="welcome-options">
-      <button class="welcome-btn" data-target="graphics">
-        <span class="icon">🎨</span>
-        <span class="text">Graphics Designs</span>
-      </button>
-      <button class="welcome-btn" data-target="uiux">
-        <span class="icon">✨</span>
-        <span class="text">UI/UX Designs</span>
-      </button>
-      <button class="welcome-btn" data-target="web">
-        <span class="icon">💻</span>
-        <span class="text">Web Development</span>
-      </button>
-    </div>
-    <button class="welcome-skip">Just browsing</button>
+  <div id="splash-screen">
+    <span class="splash-name">Oluwatobi</span>
   </div>
-</div>
-<div class="cursor-icons">
-  <div class="cursor-icon cursor-figma" style="display:block;">
-    <svg width="32" height="48" viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="16" height="16" rx="8" fill="#F24E1E"/>
-      <rect x="0" y="16" width="16" height="16" rx="8" fill="#A259FF"/>
-      <rect x="0" y="32" width="16" height="16" rx="8" fill="#1ABCFE"/>
-      <rect x="16" y="0" width="16" height="16" rx="8" fill="#FF7262"/>
-      <rect x="16" y="16" width="16" height="16" rx="8" fill="#0ACF83"/>
-    </svg>
-  </div>
-  <div class="cursor-icon cursor-flutter" style="display:none;">
-    <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter logo" width="40" height="40" />
-  </div>
-</div>
-
-<header class="floating-header">
-  <nav class="pill-nav">
-    <a href="#" class="logo-new">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
-          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <div id="welcome-modal" class="welcome-modal" style="display:none;">
+    <div class="welcome-content">
+      <h2>What are you looking for today?</h2>
+      <div class="welcome-options">
+        <button class="welcome-btn" data-target="graphics">
+          <span class="icon">🎨</span>
+          <span class="text">Graphics Designs</span>
+        </button>
+        <button class="welcome-btn" data-target="uiux">
+          <span class="icon">✨</span>
+          <span class="text">UI/UX Designs</span>
+        </button>
+        <button class="welcome-btn" data-target="web">
+          <span class="icon">💻</span>
+          <span class="text">Web Development</span>
+        </button>
       </div>
-      Oluwatobi<span>.</span>
-    </a>
-    
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <button id="themeToggle" class="theme-btn-new" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-      <a href="#contact" class="btn letstalk-btn">Let's Talk</a>
-      <button class="hamburger" aria-label="Open navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-</header>
-
-<section class="hero-new">
-  <div class="hero-bg-text">DESIGNER</div>
-  <div class="hero-center-arch">
-    <img src="1.jpg" alt="Tobi portrait" class="profile-pic-arch">
-    <div class="floating-pill left-pill">Web design</div>
-    <div class="floating-card right-card">
-      <div class="card-text">Years Crafting<br>Digital Products</div>
-      <div class="card-number">5+</div>
+      <button class="welcome-skip">Just browsing</button>
     </div>
   </div>
-  <div class="intro-text-bottom">
-    <p class="intro-greeting">Hey, I'm Oluwatobi.</p>
-    <h1 class="intro-headline">Product, UI/UX &<br>Brand Design</h1>
-    <div class="hero-socials">
-      <span class="follow-text">Follow me on</span>
-      <div class="hero-social-icons">
-        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      </div>
+  <div class="cursor-icons">
+    <div class="cursor-icon cursor-figma" style="display:block;">
+      <svg width="32" height="48" viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="16" height="16" rx="8" fill="#F24E1E" />
+        <rect x="0" y="16" width="16" height="16" rx="8" fill="#A259FF" />
+        <rect x="0" y="32" width="16" height="16" rx="8" fill="#1ABCFE" />
+        <rect x="16" y="0" width="16" height="16" rx="8" fill="#FF7262" />
+        <rect x="16" y="16" width="16" height="16" rx="8" fill="#0ACF83" />
+      </svg>
     </div>
-  </div>
-</section>
-
-<section id="services" class="section services-redesign">
-  <div class="services-header">
-    <div class="services-header-left">
-      <p class="services-subtitle"><span class="dots-icon"></span> My Services</p>
-      <h2>How I Bring Ideas to Life</h2>
-    </div>
-    <div class="services-header-right">
-      <a href="#contact" class="btn primary btn-pill">View All Services <span>&rarr;</span></a>
+    <div class="cursor-icon cursor-flutter" style="display:none;">
+      <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter logo"
+        width="40" height="40" />
     </div>
   </div>
 
-  <div class="services-accordion">
-    <!-- Item 1 -->
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span class="acc-num">01.</span>
-        <h3 class="acc-title">Graphic Design</h3>
-        <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
-      </div>
-      <div class="accordion-body">
-        <div class="acc-tags">
-          <span class="acc-tag">Flyers</span>
-          <span class="acc-tag">Posters</span>
-          <span class="acc-tag">Banners</span>
-          <span class="acc-tag">Social Media Kits</span>
+  <header class="floating-header">
+    <nav class="pill-nav">
+      <a href="#" class="logo-new">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" />
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </div>
-        <p class="acc-desc">Creating visually stunning and highly engaging graphics that capture attention and communicate your message effectively.</p>
+        Oluwatobi<span>.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn-new" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="#contact" class="btn letstalk-btn">Let's Talk</a>
+        <button class="hamburger" aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero-new">
+    <div class="hero-bg-text">DESIGNER</div>
+    <div class="hero-center-arch">
+      <img src="1.jpg" alt="Tobi portrait" class="profile-pic-arch">
+      <div class="floating-pill left-pill">Web design</div>
+      <div class="floating-card right-card">
+        <div class="card-text">Years Crafting<br>Digital Products</div>
+        <div class="card-number">5+</div>
       </div>
     </div>
-
-    <!-- Item 2 (Active by default based on mockup) -->
-    <div class="accordion-item active">
-      <div class="accordion-header">
-        <span class="acc-num">02.</span>
-        <h3 class="acc-title">Website Design & Development</h3>
-        <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
-      </div>
-      <div class="accordion-body" style="display: block;">
-        <div class="acc-tags">
-          <span class="acc-tag">Landing Page Design</span>
-          <span class="acc-tag">Responsive Website Design</span>
-          <span class="acc-tag">Wireframing and Prototyping</span>
-          <span class="acc-tag">Custom Website UI Design</span>
+    <div class="intro-text-bottom">
+      <p class="intro-greeting">Hey, I'm Oluwatobi.</p>
+      <h1 class="intro-headline">Product, UI/UX &<br>Brand Design</h1>
+      <div class="hero-socials">
+        <span class="follow-text">Follow me on</span>
+        <div class="hero-social-icons">
+          <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank"
+            aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
-        <p class="acc-desc">Designing modern, user-friendly websites focused on seamless experiences, usability, and business growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section services-redesign">
+    <div class="services-header">
+      <div class="services-header-left">
+        <p class="services-subtitle"><span class="dots-icon"></span> My Services</p>
+        <h2>How I Bring Ideas to Life</h2>
+      </div>
+      <div class="services-header-right">
+        <a href="#contact" class="btn primary btn-pill">View All Services <span>&rarr;</span></a>
       </div>
     </div>
 
-    <!-- Item 3 -->
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span class="acc-num">03.</span>
-        <h3 class="acc-title">UI/UX Design</h3>
-        <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
-      </div>
-      <div class="accordion-body">
-        <div class="acc-tags">
-          <span class="acc-tag">User Research</span>
-          <span class="acc-tag">Wireframing</span>
-          <span class="acc-tag">Prototyping</span>
+    <div class="services-accordion">
+      <!-- Item 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="acc-num">01.</span>
+          <h3 class="acc-title">Graphic Design</h3>
+          <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
         </div>
-        <p class="acc-desc">Crafting intuitive, accessible, and beautiful user interfaces that solve real problems.</p>
-      </div>
-    </div>
-
-    <!-- Item 4 -->
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span class="acc-num">04.</span>
-        <h3 class="acc-title">App Development</h3>
-        <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
-      </div>
-      <div class="accordion-body">
-        <div class="acc-tags">
-          <span class="acc-tag">Flutter Development</span>
-          <span class="acc-tag">Cross-Platform</span>
-          <span class="acc-tag">Mobile Apps</span>
-        </div>
-        <p class="acc-desc">Building fast, robust, and beautiful mobile applications for iOS and Android using Flutter.</p>
-      </div>
-    </div>
-
-    <!-- Item 5 -->
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span class="acc-num">05.</span>
-        <h3 class="acc-title">Brand Identity</h3>
-        <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
-      </div>
-      <div class="accordion-body">
-        <div class="acc-tags">
-          <span class="acc-tag">Logo Design</span>
-          <span class="acc-tag">Brand Guidelines</span>
-          <span class="acc-tag">Visual Strategy</span>
-        </div>
-        <p class="acc-desc">Crafting memorable brands that people instantly recognize and love, from scratch.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills" class="section">
-  <h2>Skills & Tools</h2>
-  <div class="skills-grid">
-    <div class="skill-item" data-skill="90">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-figma"></i>
-      </span>
-      <span>Figma</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="90">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <svg viewBox="0 0 32 32" width="32" height="32" style="height:2.5rem;width:auto;" aria-label="Canva logo"><circle cx="16" cy="16" r="16" fill="#6C63FF"/><text x="16" y="22" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" fill="#fff" font-weight="bold">C</text></svg>
-      </span>
-      <span>Canva</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="95">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fas fa-paint-brush"></i>
-      </span>
-      <span>Photoshop</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="80">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-html5"></i>
-      </span>
-      <span>HTML5</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="80">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-css3-alt"></i>
-      </span>
-      <span>CSS3</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="75">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-js"></i>
-      </span>
-      <span>JavaScript</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="50">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <img src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="MySQL logo" style="height:2.5rem;width:auto;" />
-      </span>
-      <span>MySQL</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="70">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-node-js"></i>
-      </span>
-      <span>Node.js</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="75">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-git-alt"></i>
-      </span>
-      <span>Git</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="80">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fas fa-code"></i>
-      </span>
-      <span>VS Code</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="70">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <i class="fab fa-wordpress"></i>
-      </span>
-      <span>WordPress</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-    <div class="skill-item" data-skill="65">
-      <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
-        <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter logo" style="height:2.5rem;width:auto;" />
-      </span>
-      <span>Flutter</span>
-      <div class="skill-progress"><div class="skill-progress-bar"></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="section projects-redesign">
-  <div class="projects-header-container">
-    <h2 class="projects-small-title">Projects</h2>
-    <div class="breadcrumb">Home / <span class="highlight">Projects</span></div>
-  </div>
-
-  <div class="projects-filter-bar">
-    <div class="filter-track">
-      <button class="filter-btn active" data-cat="all">All Projects</button>
-      <span class="filter-separator">+</span>
-      <button class="filter-btn" data-cat="uiux">UI/UX Design</button>
-      <span class="filter-separator">+</span>
-      <button class="filter-btn" data-cat="web">Website Design</button>
-      <span class="filter-separator">+</span>
-      <button class="filter-btn" data-cat="graphics">Graphics</button>
-      <span class="filter-separator">+</span>
-      <button class="filter-btn" data-cat="app">App Design</button>
-    </div>
-  </div>
-
-  <div class="projects-main-title">
-    <div class="title-eyebrow"><span class="dots-icon"></span> My Portfolio</div>
-    <h2>Let's Have a <span class="highlight-orange">Look</span><br><span class="highlight-orange">at My Portfolio</span></h2>
-  </div>
-
-  <div class="project-cards-horizontal">
-    <!-- Project 1 (Image Left) -->
-    <article class="project-h-card img-left" data-cat="uiux">
-      <div class="card-img-box">
-        <img src="ome.png" alt="OME Design">
-      </div>
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">UI/UX Design</span>
-          <span class="tag">Web Design</span>
-        </div>
-        <h3 class="card-title">OME Design</h3>
-        <p class="card-desc">Modern UI/UX design project showcasing innovative interface solutions and user experience optimization.</p>
-        <a href="https://omefirm.com/" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <!-- Project 2 (Image Right) -->
-    <article class="project-h-card img-right" data-cat="uiux">
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">UI/UX Design</span>
-          <span class="tag">App Design</span>
-        </div>
-        <h3 class="card-title">Hero Home Care</h3>
-        <p class="card-desc">End-to-end UI/UX design for a modern home care service platform, focusing on accessibility and trust.</p>
-        <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="card-img-box">
-        <img src="hero.png" alt="Hero Home Care">
-      </div>
-    </article>
-
-    <!-- Project 3 (Image Left) -->
-    <article class="project-h-card img-left" data-cat="uiux">
-      <div class="card-img-box">
-        <img src="access.png" alt="Access Home Care">
-      </div>
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">UI/UX Design</span>
-          <span class="tag">Wireframe</span>
-        </div>
-        <h3 class="card-title">Access Home Care</h3>
-        <p class="card-desc">UI/UX design for Access Home Care, focusing on intuitive navigation and a comforting user experience for home care services.</p>
-        <a href="https://www.behance.net/gallery/205479411/ACCESS-BANK-ECOMMERCE-APP" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <!-- Project 4 (Image Right) -->
-    <article class="project-h-card img-right" data-cat="uiux">
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">Web Design</span>
-          <span class="tag">UI/UX Design</span>
-        </div>
-        <h3 class="card-title">PowerDFI Crypto Website</h3>
-        <p class="card-desc">Redesign of the PowerDFI crypto website, delivering a user-friendly interface and modern, credible DeFi experience.</p>
-        <a href="https://www.behance.net/gallery/220107269/POWERDFI-CRYPTO-WEBSITE" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="card-img-box">
-        <img src="power dfi.png" alt="PowerDFI Crypto Website">
-      </div>
-    </article>
-
-    <!-- Project 5 (Image Left) -->
-    <article class="project-h-card img-left" data-cat="uiux">
-      <div class="card-img-box">
-        <img src="ralbw.png" alt="RALBW Brand Design">
-      </div>
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">Brand Identity</span>
-          <span class="tag">UI/UX Design</span>
-        </div>
-        <h3 class="card-title">RALBW Brand Design</h3>
-        <p class="card-desc">Comprehensive brand identity and UI/UX design for RALBW, creating a cohesive visual language and user experience.</p>
-        <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <!-- Project 6 (Image Right) -->
-    <article class="project-h-card img-right" data-cat="web">
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">Web Development</span>
-          <span class="tag">UI/UX Design</span>
-        </div>
-        <h3 class="card-title">Voting Platform</h3>
-        <p class="card-desc">Modern web application for secure digital voting, featuring real-time results and user-friendly interface design.</p>
-        <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="card-img-box">
-        <img src="voting.png" alt="Voting Platform">
-      </div>
-    </article>
-
-    <!-- Project 7 (Image Left - Graphics) -->
-    <article class="project-h-card img-left" data-cat="graphics" data-graphic-type="flyer">
-      <div class="card-img-box" style="background:#111;">
-        <img src="designs/AI SUBMIT 1.png" alt="AI Submit" style="object-fit:contain;">
-      </div>
-      <div class="card-text-box">
-        <div class="card-tags">
-          <span class="tag">Flyer Design</span>
-        </div>
-        <h3 class="card-title">AI Submit</h3>
-        <p class="card-desc">A modern and creative AI submit graphic design.</p>
-        <a href="https://drive.google.com/drive/folders/1nIWfxK-rKWaBRLQhIocBQjoPCn6xvptp" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <!-- Additional Graphics can be added similarly -->
-    
-  </div>
-
-  <div class="see-more-graphics-container" style="text-align: center; margin-top: 3rem;">
-    <a href="https://drive.google.com/drive/folders/1eFcOcToppc3Xz6f0kMS9pcyIpWLkLVOX" target="_blank" rel="noopener noreferrer" class="btn primary btn-pill">Load More <span>&rarr;</span></a>
-  </div>
-</section>
-
-<section id="experience" class="section">
-  <h2>Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2025</div>
-      <div class="timeline-content">
-        <h3>Brand Designer – RaLBW</h3>
-        <p>Grew online presence by 150% through design‑led strategy.</p>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024</div>
-      <div class="timeline-content">
-        <h3>FlutterBytes Hackathon Winner</h3>
-        <p>Built GreenVoice civic platform in 36 h.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="section alt">
-  <h2>Testimonials</h2>
-  <div class="testimonials-slider">
-    <div class="testimonial-cards">
-      <button class="testimonial-arrow left" aria-label="Previous testimonial">&#8592;</button>
-      <div class="testimonial-card active">
-        <div class="testimonial-avatar"><img src="avatar.jpg" alt="Client 1" /></div>
-        <blockquote>"Working with Oluwatobi was a fantastic experience. The designs exceeded our expectations!"</blockquote>
-        <div class="testimonial-name">Jane Doe, CEO, ExampleCorp</div>
-        <div class="testimonial-role">CEO</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-avatar"><img src="avatar.jpg" alt="Client 2" /></div>
-        <blockquote>"Professional, creative, and always on time. Highly recommended for any web project."</blockquote>
-        <div class="testimonial-name">John Smith, Product Manager</div>
-        <div class="testimonial-role">Product Manager</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-avatar"><img src="avatar.jpg" alt="Client 3" /></div>
-        <blockquote>"The UI/UX work was top-notch. Communication was clear and the results were stunning."</blockquote>
-        <div class="testimonial-name">Mary Johnson, Startup Founder</div>
-        <div class="testimonial-role">Startup Founder</div>
-      </div>
-      <button class="testimonial-arrow right" aria-label="Next testimonial">&#8594;</button>
-    </div>
-    <div class="testimonial-dots">
-      <span class="testimonial-dot active"></span>
-      <span class="testimonial-dot"></span>
-      <span class="testimonial-dot"></span>
-    </div>
-    <button id="showTestimonialForm" class="btn primary" style="display:block;margin:1.5rem auto 0 auto;">Add Testimonial</button>
-    <form id="testimonialForm" class="testimonial-form" style="display:none;">
-      <h3>Share your experience</h3>
-      <input type="text" name="name" id="testimonialName" placeholder="Your name" required>
-      <input type="text" name="role" id="testimonialRole" placeholder="Your role or job title (optional)">
-      <textarea name="testimonial" id="testimonialText" placeholder="Your testimonial" required></textarea>
-      <input type="file" accept="image/*" name="photo" id="testimonialPhoto" placeholder="Photo (optional)">
-      <button type="submit" class="btn primary">Submit Testimonial</button>
-      <div id="testimonialFormMsg" style="margin-top:0.7em;font-size:1em;"></div>
-    </form>
-  </div>
-</section>
-
-<section class="cta-banner">
-  <div class="cta-content">
-    <h2>Got a Dream Project?<br>Let's Create It Together!</h2>
-    <a href="#contact" class="btn letstalk-btn cta-btn">Contact Me <span>&rarr;</span></a>
-    
-    <div class="cta-floating-pills">
-      <span class="fpill p1">Wireframe Design</span>
-      <span class="fpill p2">Prototype</span>
-      <span class="fpill p3">Brand Identity</span>
-      <span class="fpill p4">Mobile App Design</span>
-      <span class="fpill p5">UI/UX Design</span>
-      <span class="fpill p6">UI Design</span>
-      <span class="fpill p7">Website Design</span>
-      <span class="fpill p8">Illustration</span>
-      <span class="fpill p9">User Research</span>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="section contact-redesign">
-  <div class="contact-header">
-    <p class="services-subtitle" style="justify-content:center;"><span class="dots-icon"></span> Contact Me</p>
-    <h2>Let's Talk for Your<br><span class="highlight-orange">Next Projects</span></h2>
-  </div>
-
-  <div class="contact-split">
-    <!-- Left: Form -->
-    <div class="contact-left">
-      <form id="contactFormNew" action="https://formspree.io/f/yourFormID" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Name *</label>
-            <input type="text" name="name" placeholder="Ex. John Doe" required>
+        <div class="accordion-body">
+          <div class="acc-tags">
+            <span class="acc-tag">Flyers</span>
+            <span class="acc-tag">Posters</span>
+            <span class="acc-tag">Banners</span>
+            <span class="acc-tag">Social Media Kits</span>
           </div>
-          <div class="form-group">
-            <label>Email *</label>
-            <input type="email" name="_replyto" placeholder="example@gmail.com" required>
-          </div>
+          <p class="acc-desc">Creating visually stunning and highly engaging graphics that capture attention and
+            communicate your message effectively.</p>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Phone *</label>
-            <input type="text" name="phone" placeholder="Enter Phone Number" required>
-          </div>
-          <div class="form-group">
-            <label>I'm Interested In *</label>
-            <select name="interest" required>
-              <option value="">Select</option>
-              <option value="uiux">UI/UX Design</option>
-              <option value="web">Web Development</option>
-              <option value="app">App Development</option>
-            </select>
-          </div>
+      </div>
+
+      <!-- Item 2 (Active by default based on mockup) -->
+      <div class="accordion-item active">
+        <div class="accordion-header">
+          <span class="acc-num">02.</span>
+          <h3 class="acc-title">Website Design & Development</h3>
+          <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Budget Range (USD) *</label>
-            <select name="budget" required>
-              <option value="">Select Range</option>
-              <option value="<1k">< $1,000</option>
-              <option value="1k-5k">$1,000 - $5,000</option>
-              <option value=">5k">> $5,000</option>
-            </select>
+        <div class="accordion-body" style="display: block;">
+          <div class="acc-tags">
+            <span class="acc-tag">Landing Page Design</span>
+            <span class="acc-tag">Responsive Website Design</span>
+            <span class="acc-tag">Wireframing and Prototyping</span>
+            <span class="acc-tag">Custom Website UI Design</span>
           </div>
-          <div class="form-group">
-            <label>Country *</label>
-            <select name="country" required>
-              <option value="">Select Country</option>
-              <option value="us">United States</option>
-              <option value="uk">United Kingdom</option>
-              <option value="other">Other</option>
-            </select>
+          <p class="acc-desc">Designing modern, user-friendly websites focused on seamless experiences, usability, and
+            business growth.</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="acc-num">03.</span>
+          <h3 class="acc-title">UI/UX Design</h3>
+          <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="accordion-body">
+          <div class="acc-tags">
+            <span class="acc-tag">User Research</span>
+            <span class="acc-tag">Wireframing</span>
+            <span class="acc-tag">Prototyping</span>
           </div>
+          <p class="acc-desc">Crafting intuitive, accessible, and beautiful user interfaces that solve real problems.
+          </p>
         </div>
-        <div class="form-group">
-          <label>Your Message *</label>
-          <textarea name="message" rows="4" placeholder="Enter here.." required></textarea>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="acc-num">04.</span>
+          <h3 class="acc-title">App Development</h3>
+          <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
         </div>
-        <button type="submit" class="btn submit-btn">Send Message</button>
+        <div class="accordion-body">
+          <div class="acc-tags">
+            <span class="acc-tag">Flutter Development</span>
+            <span class="acc-tag">Cross-Platform</span>
+            <span class="acc-tag">Mobile Apps</span>
+          </div>
+          <p class="acc-desc">Building fast, robust, and beautiful mobile applications for iOS and Android using
+            Flutter.</p>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="acc-num">05.</span>
+          <h3 class="acc-title">Brand Identity</h3>
+          <span class="acc-icon"><i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="accordion-body">
+          <div class="acc-tags">
+            <span class="acc-tag">Logo Design</span>
+            <span class="acc-tag">Brand Guidelines</span>
+            <span class="acc-tag">Visual Strategy</span>
+          </div>
+          <p class="acc-desc">Crafting memorable brands that people instantly recognize and love, from scratch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-item" data-skill="90">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-figma"></i>
+        </span>
+        <span>Figma</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="90">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <svg viewBox="0 0 32 32" width="32" height="32" style="height:2.5rem;width:auto;" aria-label="Canva logo">
+            <circle cx="16" cy="16" r="16" fill="#6C63FF" /><text x="16" y="22" text-anchor="middle" font-size="13"
+              font-family="Arial, sans-serif" fill="#fff" font-weight="bold">C</text>
+          </svg>
+        </span>
+        <span>Canva</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="95">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fas fa-paint-brush"></i>
+        </span>
+        <span>Photoshop</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="80">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-html5"></i>
+        </span>
+        <span>HTML5</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="80">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-css3-alt"></i>
+        </span>
+        <span>CSS3</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="75">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-js"></i>
+        </span>
+        <span>JavaScript</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="50">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <img src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="MySQL logo"
+            style="height:2.5rem;width:auto;" />
+        </span>
+        <span>MySQL</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="70">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-node-js"></i>
+        </span>
+        <span>Node.js</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="75">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-git-alt"></i>
+        </span>
+        <span>Git</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="80">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fas fa-code"></i>
+        </span>
+        <span>VS Code</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="70">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <i class="fab fa-wordpress"></i>
+        </span>
+        <span>WordPress</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+      <div class="skill-item" data-skill="65">
+        <span style="display:flex;align-items:center;justify-content:center;height:2.5rem;margin-bottom:0.5rem;">
+          <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter logo"
+            style="height:2.5rem;width:auto;" />
+        </span>
+        <span>Flutter</span>
+        <div class="skill-progress">
+          <div class="skill-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section projects-redesign">
+    <div class="projects-header-container">
+      <h2 class="projects-small-title">Projects</h2>
+      <div class="breadcrumb">Home / <span class="highlight">Projects</span></div>
+    </div>
+
+    <div class="projects-filter-bar">
+      <div class="filter-track">
+        <button class="filter-btn active" data-cat="all">All Projects</button>
+        <span class="filter-separator">+</span>
+        <button class="filter-btn" data-cat="uiux">UI/UX Design</button>
+        <span class="filter-separator">+</span>
+        <button class="filter-btn" data-cat="web">Website Design</button>
+        <span class="filter-separator">+</span>
+        <button class="filter-btn" data-cat="graphics">Graphics</button>
+        <span class="filter-separator">+</span>
+        <button class="filter-btn" data-cat="app">App Design</button>
+      </div>
+    </div>
+
+    <div class="projects-main-title">
+      <div class="title-eyebrow"><span class="dots-icon"></span> My Portfolio</div>
+      <h2>Let's Have a <span class="highlight-orange">Look</span><br><span class="highlight-orange">at My
+          Portfolio</span></h2>
+    </div>
+
+    <div class="project-cards-horizontal">
+      <!-- Project 1 (Image Left) -->
+      <article class="project-h-card img-left" data-cat="uiux">
+        <div class="card-img-box">
+          <img src="ome.png" alt="OME Design">
+        </div>
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">UI/UX Design</span>
+            <span class="tag">Web Design</span>
+          </div>
+          <h3 class="card-title">OME Design</h3>
+          <p class="card-desc">Modern UI/UX design project showcasing innovative interface solutions and user experience
+            optimization.</p>
+          <a href="https://omefirm.com/" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Project 2 (Image Right) -->
+      <article class="project-h-card img-right" data-cat="uiux">
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">UI/UX Design</span>
+            <span class="tag">App Design</span>
+          </div>
+          <h3 class="card-title">Hero Home Care</h3>
+          <p class="card-desc">End-to-end UI/UX design for a modern home care service platform, focusing on
+            accessibility and trust.</p>
+          <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card-img-box">
+          <img src="hero.png" alt="Hero Home Care">
+        </div>
+      </article>
+
+      <!-- Project 3 (Image Left) -->
+      <article class="project-h-card img-left" data-cat="uiux">
+        <div class="card-img-box">
+          <img src="access.png" alt="Access Home Care">
+        </div>
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">UI/UX Design</span>
+            <span class="tag">Wireframe</span>
+          </div>
+          <h3 class="card-title">Access Home Care</h3>
+          <p class="card-desc">UI/UX design for Access Home Care, focusing on intuitive navigation and a comforting user
+            experience for home care services.</p>
+          <a href="https://www.behance.net/gallery/205479411/ACCESS-BANK-ECOMMERCE-APP" class="card-action-btn"><i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Project 4 (Image Right) -->
+      <article class="project-h-card img-right" data-cat="uiux">
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">Web Design</span>
+            <span class="tag">UI/UX Design</span>
+          </div>
+          <h3 class="card-title">PowerDFI Crypto Website</h3>
+          <p class="card-desc">Redesign of the PowerDFI crypto website, delivering a user-friendly interface and modern,
+            credible DeFi experience.</p>
+          <a href="https://www.behance.net/gallery/220107269/POWERDFI-CRYPTO-WEBSITE" class="card-action-btn"><i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card-img-box">
+          <img src="power dfi.png" alt="PowerDFI Crypto Website">
+        </div>
+      </article>
+
+      <!-- Project 5 (Image Left) -->
+      <article class="project-h-card img-left" data-cat="uiux">
+        <div class="card-img-box">
+          <img src="ralbw.png" alt="RALBW Brand Design">
+        </div>
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">Brand Identity</span>
+            <span class="tag">UI/UX Design</span>
+          </div>
+          <h3 class="card-title">RALBW Brand Design</h3>
+          <p class="card-desc">Comprehensive brand identity and UI/UX design for RALBW, creating a cohesive visual
+            language and user experience.</p>
+          <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Project 6 (Image Right) -->
+      <article class="project-h-card img-right" data-cat="web">
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">Web Development</span>
+            <span class="tag">UI/UX Design</span>
+          </div>
+          <h3 class="card-title">Voting Platform</h3>
+          <p class="card-desc">Modern web application for secure digital voting, featuring real-time results and
+            user-friendly interface design.</p>
+          <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card-img-box">
+          <img src="voting.png" alt="Voting Platform">
+        </div>
+      </article>
+
+      <!-- Project 7 (Image Left - Graphics) -->
+      <article class="project-h-card img-left" data-cat="graphics" data-graphic-type="flyer">
+        <div class="card-img-box" style="background:#111;">
+          <img src="designs/AI SUBMIT 1.png" alt="AI Submit" style="object-fit:contain;">
+        </div>
+        <div class="card-text-box">
+          <div class="card-tags">
+            <span class="tag">Flyer Design</span>
+          </div>
+          <h3 class="card-title">AI Submit</h3>
+          <p class="card-desc">A modern and creative AI submit graphic design.</p>
+          <a href="https://drive.google.com/drive/folders/1nIWfxK-rKWaBRLQhIocBQjoPCn6xvptp" class="card-action-btn"><i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Additional Graphics can be added similarly -->
+
+    </div>
+
+    <div class="see-more-graphics-container" style="text-align: center; margin-top: 3rem;">
+      <a href="https://drive.google.com/drive/folders/1eFcOcToppc3Xz6f0kMS9pcyIpWLkLVOX" target="_blank"
+        rel="noopener noreferrer" class="btn primary btn-pill">Load More <span>&rarr;</span></a>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2025</div>
+        <div class="timeline-content">
+          <h3>Brand Designer – RaLBW</h3>
+          <p>Grew online presence by 150% through design‑led strategy.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2024</div>
+        <div class="timeline-content">
+          <h3>FlutterBytes Hackathon Winner</h3>
+          <p>Built GreenVoice civic platform in 36 h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section alt">
+    <h2>Testimonials</h2>
+    <div class="testimonials-slider">
+      <div class="testimonial-cards">
+        <button class="testimonial-arrow left" aria-label="Previous testimonial">&#8592;</button>
+        <div class="testimonial-card active">
+          <div class="testimonial-avatar"><img src="avatar.jpg" alt="Client 1" /></div>
+          <blockquote>"Working with Oluwatobi was a fantastic experience. The designs exceeded our expectations!"
+          </blockquote>
+          <div class="testimonial-name">Jane Doe, CEO, ExampleCorp</div>
+          <div class="testimonial-role">CEO</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-avatar"><img src="avatar.jpg" alt="Client 2" /></div>
+          <blockquote>"Professional, creative, and always on time. Highly recommended for any web project."</blockquote>
+          <div class="testimonial-name">John Smith, Product Manager</div>
+          <div class="testimonial-role">Product Manager</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-avatar"><img src="avatar.jpg" alt="Client 3" /></div>
+          <blockquote>"The UI/UX work was top-notch. Communication was clear and the results were stunning."
+          </blockquote>
+          <div class="testimonial-name">Mary Johnson, Startup Founder</div>
+          <div class="testimonial-role">Startup Founder</div>
+        </div>
+        <button class="testimonial-arrow right" aria-label="Next testimonial">&#8594;</button>
+      </div>
+      <div class="testimonial-dots">
+        <span class="testimonial-dot active"></span>
+        <span class="testimonial-dot"></span>
+        <span class="testimonial-dot"></span>
+      </div>
+      <button id="showTestimonialForm" class="btn primary" style="display:block;margin:1.5rem auto 0 auto;">Add
+        Testimonial</button>
+      <form id="testimonialForm" class="testimonial-form" style="display:none;">
+        <h3>Share your experience</h3>
+        <input type="text" name="name" id="testimonialName" placeholder="Your name" required>
+        <input type="text" name="role" id="testimonialRole" placeholder="Your role or job title (optional)">
+        <textarea name="testimonial" id="testimonialText" placeholder="Your testimonial" required></textarea>
+        <input type="file" accept="image/*" name="photo" id="testimonialPhoto" placeholder="Photo (optional)">
+        <button type="submit" class="btn primary">Submit Testimonial</button>
+        <div id="testimonialFormMsg" style="margin-top:0.7em;font-size:1em;"></div>
       </form>
     </div>
+  </section>
 
-    <!-- Right: Info Card -->
-    <div class="contact-right">
-      <div class="info-card">
-        <div class="info-section">
-          <h4>Address</h4>
-          <p>2464 Royal Ln. Mesa,<br>New Jersey 45463</p>
-        </div>
-        <div class="info-section">
-          <h4>Contact</h4>
-          <p>Phone: +0123-456-789<br>Email: example@gmail.com</p>
-        </div>
-        <div class="info-section">
-          <h4>Time</h4>
-          <p>Monday - Friday: 10:00 - 20:00<br>Saturday - Sunday: 11:00 - 18:00</p>
-        </div>
-        <div class="info-social-footer">
-          <h4>Stay Connected</h4>
-          <div class="info-social-links">
-            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fas fa-globe"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13"><i class="fab fa-github"></i></a>
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2>Got a Dream Project?<br>Let's Create It Together!</h2>
+      <a href="#contact" class="btn letstalk-btn cta-btn">Contact Me <span>&rarr;</span></a>
+
+      <div class="cta-floating-pills">
+        <span class="fpill p1">Wireframe Design</span>
+        <span class="fpill p2">Prototype</span>
+        <span class="fpill p3">Brand Identity</span>
+        <span class="fpill p4">Mobile App Design</span>
+        <span class="fpill p5">UI/UX Design</span>
+        <span class="fpill p6">UI Design</span>
+        <span class="fpill p7">Website Design</span>
+        <span class="fpill p8">Illustration</span>
+        <span class="fpill p9">User Research</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-redesign">
+    <div class="contact-header">
+      <p class="services-subtitle" style="justify-content:center;"><span class="dots-icon"></span> Contact Me</p>
+      <h2>Let's Talk for Your<br><span class="highlight-orange">Next Projects</span></h2>
+    </div>
+
+    <div class="contact-split">
+      <!-- Left: Form -->
+      <div class="contact-left">
+        <form id="contactFormNew" action="https://formspree.io/f/yourFormID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" name="name" placeholder="Ex. John Doe" required>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="_replyto" placeholder="example@gmail.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="text" name="phone" placeholder="Enter Phone Number" required>
+            </div>
+            <div class="form-group">
+              <label>I'm Interested In *</label>
+              <select name="interest" required>
+                <option value="">Select</option>
+                <option value="uiux">UI/UX Design</option>
+                <option value="web">Web Development</option>
+                <option value="app">App Development</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Budget Range (USD) *</label>
+              <select name="budget" required>
+                <option value="">Select Range</option>
+                <option value="<1k">
+                  < $1,000</option>
+                <option value="1k-5k">$1,000 - $5,000</option>
+                <option value=">5k">> $5,000</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Country *</label>
+              <select name="country" required>
+                <option value="">Select Country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Message *</label>
+            <textarea name="message" rows="4" placeholder="Enter here.." required></textarea>
+          </div>
+          <button type="submit" class="btn submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Right: Info Card -->
+      <div class="contact-right">
+        <div class="info-card">
+          <div class="info-section">
+            <h4>Address</h4>
+            <p>Alimosho, Lagos<br>Nigeria</p>
+          </div>
+          <div class="info-section">
+            <h4>Contact</h4>
+            <p>Phone: +234-814-578-9624<br>Email: adefemioluwatobi13@gmail.com</p>
+          </div>
+          <div class="info-section">
+            <h4>Time</h4>
+            <p>Monday - Friday: 10:00 - 20:00<br>Saturday - Sunday: 11:00 - 18:00</p>
+          </div>
+          <div class="info-social-footer">
+            <h4>Stay Connected</h4>
+            <div class="info-social-links">
+              <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-globe"></i></a>
+              <a href="#"><i class="fab fa-dribbble"></i></a>
+              <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13"><i
+                  class="fab fa-github"></i></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FAQs Section -->
-<section id="faqs" class="section faq-redesign">
-  <div class="faq-header-left">
-    <p class="services-subtitle"><span class="dots-icon"></span> FAQs</p>
-    <h2>Question? <span class="highlight-orange">Look here.</span></h2>
-    
-    <div class="faq-ask-card">
-      <div class="faq-ask-icon"><i class="fas fa-comments"></i></div>
-      <h3>You have different<br>questions? Ask Away!</h3>
-      <p>Your Questions, My Answers.<br>Quick Responses Guaranteed.</p>
-      <a href="#contact" class="btn faq-contact-btn">Contact Me</a>
+  <!-- FAQs Section -->
+  <section id="faqs" class="section faq-redesign">
+    <div class="faq-header-left">
+      <p class="services-subtitle"><span class="dots-icon"></span> FAQs</p>
+      <h2>Question? <span class="highlight-orange">Look here.</span></h2>
+
+      <div class="faq-ask-card">
+        <div class="faq-ask-icon"><i class="fas fa-comments"></i></div>
+        <h3>You have different<br>questions? Ask Away!</h3>
+        <p>Your Questions, My Answers.<br>Quick Responses Guaranteed.</p>
+        <a href="#contact" class="btn faq-contact-btn">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="faq-accordion-right">
+      <div class="faq-item">
+        <div class="faq-item-header">
+          <h4>What industries do you specialize in?</h4>
+          <span class="faq-icon"><i class="fas fa-plus"></i></span>
+        </div>
+        <div class="faq-item-body">
+          <p>I have experience across various industries including fintech, healthcare, e-commerce, and education.</p>
+        </div>
+      </div>
+
+      <div class="faq-item active">
+        <div class="faq-item-header">
+          <h4>Do you design mobile and web applications?</h4>
+          <span class="faq-icon"><i class="fas fa-minus"></i></span>
+        </div>
+        <div class="faq-item-body" style="display:block;">
+          <p>Yes, I design responsive mobile apps, websites, dashboards, SaaS platforms, and digital product
+            experiences.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item-header">
+          <h4>Do you create wireframes and prototypes?</h4>
+          <span class="faq-icon"><i class="fas fa-plus"></i></span>
+        </div>
+        <div class="faq-item-body">
+          <p>Absolutely. Wireframing and rapid prototyping are core parts of my UX design process.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item-header">
+          <h4>Do you work with startups and businesses?</h4>
+          <span class="faq-icon"><i class="fas fa-plus"></i></span>
+        </div>
+        <div class="faq-item-body">
+          <p>Yes! Whether you are an early-stage startup or an established enterprise, I can help.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item-header">
+          <h4>How long does a product design project take?</h4>
+          <span class="faq-icon"><i class="fas fa-plus"></i></span>
+        </div>
+        <div class="faq-item-body">
+          <p>Timelines vary greatly based on scope, but a typical MVP design takes 3 to 6 weeks.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item-header">
+          <h4>What is your product design process?</h4>
+          <span class="faq-icon"><i class="fas fa-plus"></i></span>
+        </div>
+        <div class="faq-item-body">
+          <p>My process includes discovery, research, wireframing, high-fidelity design, prototyping, and developer
+            handoff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i
+          class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank"
+        aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="adefemioluwatobi13@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Oluwatobi. Building with heart. Designing with purpose.</p>
+  </footer>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <a id="modalLink" href="#" target="_blank" rel="noopener" class="btn primary">See Project ↗</a>
     </div>
   </div>
 
-  <div class="faq-accordion-right">
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h4>What industries do you specialize in?</h4>
-        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-      </div>
-      <div class="faq-item-body">
-        <p>I have experience across various industries including fintech, healthcare, e-commerce, and education.</p>
-      </div>
-    </div>
-
-    <div class="faq-item active">
-      <div class="faq-item-header">
-        <h4>Do you design mobile and web applications?</h4>
-        <span class="faq-icon"><i class="fas fa-minus"></i></span>
-      </div>
-      <div class="faq-item-body" style="display:block;">
-        <p>Yes, I design responsive mobile apps, websites, dashboards, SaaS platforms, and digital product experiences.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h4>Do you create wireframes and prototypes?</h4>
-        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-      </div>
-      <div class="faq-item-body">
-        <p>Absolutely. Wireframing and rapid prototyping are core parts of my UX design process.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h4>Do you work with startups and businesses?</h4>
-        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-      </div>
-      <div class="faq-item-body">
-        <p>Yes! Whether you are an early-stage startup or an established enterprise, I can help.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h4>How long does a product design project take?</h4>
-        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-      </div>
-      <div class="faq-item-body">
-        <p>Timelines vary greatly based on scope, but a typical MVP design takes 3 to 6 weeks.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h4>What is your product design process?</h4>
-        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-      </div>
-      <div class="faq-item-body">
-        <p>My process includes discovery, research, wireframing, high-fidelity design, prototyping, and developer handoff.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="socials">
-    <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="adefemioluwatobi13@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-  </div>
-  <p>&copy; 2025 Oluwatobi. Building with heart. Designing with purpose.</p>
-</footer>
-
-<!-- Project Modal -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <a id="modalLink" href="#" target="_blank" rel="noopener" class="btn primary">See Project ↗</a>
-  </div>
-</div>
-
-<button id="scrollToTop" aria-label="Scroll to top" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:300;background:var(--brand-gradient);color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px rgba(63,142,252,0.18);font-size:1.7rem;cursor:pointer;align-items:center;justify-content:center;transition:opacity 0.3s;">
-  <i class="fas fa-arrow-up"></i>
-</button>
+  <button id="scrollToTop" aria-label="Scroll to top"
+    style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:300;background:var(--brand-gradient);color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px rgba(63,142,252,0.18);font-size:1.7rem;cursor:pointer;align-items:center;justify-content:center;transition:opacity 0.3s;">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
 </body>
+
 </html>
