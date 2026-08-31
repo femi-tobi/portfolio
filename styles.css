@@ -212,6 +212,41 @@ nav.nav-hidden {
   letter-spacing: -1px;
 }
 
+.hero-socials {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.follow-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.hero-social-icons {
+  display: flex;
+  gap: 0.8rem;
+}
+.hero-social-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  font-size: 1.1rem;
+  transition: background 0.3s, transform 0.3s;
+}
+.hero-social-icons a:hover {
+  background: var(--brand-gradient);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
 @media (max-width: 1024px) {
   .hero-center-arch {
     width: 320px;
@@ -249,9 +284,15 @@ nav.nav-hidden {
     text-align: center;
     padding: 0 1rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .intro-headline {
     font-size: 2.2rem;
+  }
+  .hero-socials {
+    justify-content: center;
   }
   .left-pill {
     font-size: 0.85rem;
