@@ -200,6 +200,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// CV Dropdown Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const cvDropdownBtn = document.getElementById('cvDropdownBtn');
+  const cvDropdown = document.getElementById('cvDropdown');
+  const downloadLinks = cvDropdown?.querySelectorAll('.cv-option');
+
+  if (cvDropdownBtn && cvDropdown) {
+    cvDropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cvDropdown.classList.toggle('show');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!cvDropdown.contains(e.target) && e.target !== cvDropdownBtn) {
+        cvDropdown.classList.remove('show');
+      }
+    });
+    
+    // Close when a download link is clicked
+    if (downloadLinks) {
+      downloadLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          cvDropdown.classList.remove('show');
+        });
+      });
+    }
+  }
+});
+
 // Scroll-to-top button logic
 const scrollToTopBtn = document.getElementById('scrollToTop');
 window.addEventListener('scroll', function() {

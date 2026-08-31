@@ -1965,9 +1965,129 @@ footer {
   background: #222;
   color: #fff;
 }
-/ *  
- S k i l l s  
- S p l i t  
- L a y o u t  
- * /  
- 
+/* Skills Split Layout */
+.skills-redesign {
+  background: #f8f9fc;
+  color: #1a2236;
+  padding: 6rem 1rem;
+}
+[data-theme="dark"] .skills-redesign {
+  background: #f8f9fc; /* Keeping it light as per image */
+}
+.skills-split-container {
+  display: flex;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.skills-column {
+  flex: 1;
+}
+.skills-col-title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3f4765;
+  margin-bottom: 3rem;
+}
+.skills-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.skill-h-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.skill-h-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(63,142,252,0.15);
+}
+.skill-icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #ddd; /* overridden by inline style if needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.skill-icon-circle img, .skill-icon-circle svg {
+  width: 24px;
+  height: 24px;
+}
+.skill-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4b526d;
+}
+
+@media (max-width: 768px) {
+  .skills-split-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+/* CV Dropdown */
+.cv-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: white;
+  border-radius: 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 100;
+  text-align: left;
+}
+.cv-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.cv-option {
+  padding: 0.8rem 1rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.cv-option:hover {
+  background: #f8f9fc;
+  color: var(--brand);
+}
+[data-theme="dark"] .cv-dropdown {
+  background: #2a2d3e;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .cv-option {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .cv-option:hover {
+  background: #35394f;
+  color: #fff;
+}

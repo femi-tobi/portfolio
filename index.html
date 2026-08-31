@@ -50,6 +50,8 @@
       <button class="welcome-skip">Just browsing</button>
     </div>
   </div>
+
+
   <div class="cursor-icons">
     <div class="cursor-icon cursor-figma" style="display:block;">
       <svg width="32" height="48" viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,15 +71,6 @@
   <header class="floating-header">
     <nav class="pill-nav">
       <a href="#" class="logo-new">
-        <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" />
-            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </div>
         Oluwatobi<span>.</span>
       </a>
 
@@ -118,11 +111,18 @@
       <div class="hero-socials">
         <span class="follow-text">Follow me on</span>
         <div class="hero-social-icons">
-          <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://x.com/Oluwatobi153" target="_blank" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
           <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i
               class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank"
             aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="hero-cv-section" style="margin-top: 1.8rem; position: relative; display: inline-block;">
+        <button id="cvDropdownBtn" class="btn primary btn-pill">Download CV <i class="fas fa-chevron-down" style="margin-left:8px;"></i></button>
+        <div id="cvDropdown" class="cv-dropdown">
+          <a href="resumes/cv.pdf" download class="cv-option"><i class="fas fa-magic" style="width:20px;"></i> UI/UX Design CV</a>
+          <a href="resumes/adefemi oluwatobi graphics resume.pdf" download class="cv-option"><i class="fas fa-paint-brush" style="width:20px;"></i> Graphics Design CV</a>
         </div>
       </div>
     </div>
@@ -242,79 +242,61 @@
         <h3 class="skills-col-title">Design</h3>
         <div class="skills-col-grid">
           <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(242,78,30,0.3);"><i class="fab fa-figma" style="color:#F24E1E;"></i></div>
+            <div class="skill-icon-circle" style="border-color: rgba(242,78,30,0.3);"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma logo" width="24" height="24" /></div>
             <span class="skill-name">Figma</span>
           </div>
           <div class="skill-h-card">
             <div class="skill-icon-circle" style="border-color: rgba(0,196,204,0.3);">
-              <svg viewBox="0 0 32 32" width="24" height="24" aria-label="Canva logo">
-                <circle cx="16" cy="16" r="16" fill="#00C4CC" /><text x="16" y="22" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" fill="#fff" font-weight="bold">C</text>
-              </svg>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="Canva logo" width="24" height="24" />
             </div>
             <span class="skill-name">Canva</span>
           </div>
           <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(0,168,225,0.3);"><i class="fas fa-paint-brush" style="color:#00a8e1;"></i></div>
-            <span class="skill-name">Adobe Photoshop</span>
-          </div>
-          <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(153,153,255,0.3);"><i class="fas fa-video" style="color:#9999ff;"></i></div>
-            <span class="skill-name">Adobe Premiere Pro</span>
-          </div>
-          <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(207,153,255,0.3);"><i class="fas fa-film" style="color:#cf99ff;"></i></div>
-            <span class="skill-name">Adobe After Effects</span>
-          </div>
-          <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(0,121,191,0.3);"><i class="fab fa-trello" style="color:#0079BF;"></i></div>
-            <span class="skill-name">Trello</span>
+            <div class="skill-icon-circle" style="border-color: rgba(0,168,225,0.3);"><img src="logos/photoshop.webp" alt="Photoshop logo" width="24" height="24" /></div>
+            <span class="skill-name">Photoshop</span>
           </div>
         </div>
       </div>
 
       <!-- Development Column -->
       <div class="skills-column">
-        <h3 class="skills-col-title">Web Development</h3>
+        <h3 class="skills-col-title">Development</h3>
         <div class="skills-col-grid">
           <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(68,121,161,0.3);"><i class="fas fa-database" style="color:#4479A1;"></i></div>
-            <span class="skill-name">MySQL</span>
-          </div>
-          <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(119,123,179,0.3);"><i class="fab fa-php" style="color:#777BB3;"></i></div>
-            <span class="skill-name">PHP</span>
+            <div class="skill-icon-circle" style="border-color: rgba(84,197,248,0.3);"><img src="logos/flutter.png" alt="Flutter logo" width="24" height="24" /></div>
+            <span class="skill-name">Flutter</span>
           </div>
           <div class="skill-h-card">
             <div class="skill-icon-circle" style="border-color: rgba(227,79,38,0.3);"><i class="fab fa-html5" style="color:#E34F26;"></i></div>
-            <span class="skill-name">HTML</span>
+            <span class="skill-name">HTML5</span>
           </div>
           <div class="skill-h-card">
             <div class="skill-icon-circle" style="border-color: rgba(21,114,182,0.3);"><i class="fab fa-css3-alt" style="color:#1572B6;"></i></div>
-            <span class="skill-name">CSS</span>
+            <span class="skill-name">CSS3</span>
           </div>
           <div class="skill-h-card">
             <div class="skill-icon-circle" style="border-color: rgba(247,223,30,0.3);"><i class="fab fa-js" style="color:#F7DF1E;"></i></div>
             <span class="skill-name">JavaScript</span>
           </div>
           <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(97,218,251,0.3);"><i class="fab fa-react" style="color:#61DAFB;"></i></div>
-            <span class="skill-name">React</span>
+            <div class="skill-icon-circle" style="border-color: rgba(68,121,161,0.3);"><img src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="MySQL logo" width="24" height="24" /></div>
+            <span class="skill-name">MySQL</span>
           </div>
           <div class="skill-h-card">
             <div class="skill-icon-circle" style="border-color: rgba(0,0,0,0.3);"><i class="fab fa-node-js" style="color:#339933;"></i></div>
             <span class="skill-name">Node.js</span>
           </div>
           <div class="skill-h-card">
+            <div class="skill-icon-circle" style="border-color: rgba(240,80,50,0.3);"><i class="fab fa-git-alt" style="color:#F05032;"></i></div>
+            <span class="skill-name">Git</span>
+          </div>
+          <div class="skill-h-card">
+            <div class="skill-icon-circle" style="border-color: rgba(0,120,215,0.3);"><i class="fas fa-code" style="color:#0078D7;"></i></div>
+            <span class="skill-name">VS Code</span>
+          </div>
+          <div class="skill-h-card">
             <div class="skill-icon-circle" style="border-color: rgba(33,117,155,0.3);"><i class="fab fa-wordpress" style="color:#21759B;"></i></div>
             <span class="skill-name">WordPress</span>
-          </div>
-          <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(66,133,244,0.3);"><i class="fab fa-google" style="color:#4285F4;"></i></div>
-            <span class="skill-name">Google Ads</span>
-          </div>
-          <div class="skill-h-card">
-            <div class="skill-icon-circle" style="border-color: rgba(84,197,248,0.3);"><img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" width="24" height="24" alt="Flutter"></div>
-            <span class="skill-name">Flutter</span>
           </div>
         </div>
       </div>
@@ -649,7 +631,7 @@
           <div class="info-social-footer">
             <h4>Stay Connected</h4>
             <div class="info-social-links">
-              <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+              <a href="https://x.com/Oluwatobi153" target="_blank"><i class="fab fa-twitter"></i></a>
               <a href="#"><i class="fas fa-globe"></i></a>
               <a href="#"><i class="fab fa-dribbble"></i></a>
               <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/"><i class="fab fa-linkedin-in"></i></a>
@@ -743,7 +725,7 @@
 
   <footer>
     <div class="socials">
-      <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://x.com/Oluwatobi153" target="_blank" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
       <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i
           class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank"
