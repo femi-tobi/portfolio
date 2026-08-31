@@ -61,22 +61,37 @@
   </div>
 </div>
 
-<header>
-  <nav>
-    <h1 class="logo">Oluwatobi<span>.</span></h1>
-    <button class="hamburger" aria-label="Open navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+<header class="floating-header">
+  <nav class="pill-nav">
+    <a href="#" class="logo-new">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      Oluwatobi<span>.</span>
+    </a>
+    
     <ul class="nav-links">
+      <li><a href="#">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="cv.pdf" download class="btn">Download&nbsp;CV</a></li>
     </ul>
-    <button id="themeToggle" aria-label="Toggle theme">🌞</button>
+
+    <div class="nav-actions">
+      <button id="themeToggle" class="theme-btn-new" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="#contact" class="btn letstalk-btn">Let's Talk</a>
+      <button class="hamburger" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
 </header>
 
@@ -296,172 +311,149 @@
   </div>
 </section>
 
-<section id="projects" class="section">
-  <h2>Past Projects</h2>
-  <div class="filter">
-    <button class="filter-btn active" data-cat="all">All</button>
-    <button class="filter-btn" data-cat="web">Webdesign</button>
-    <button class="filter-btn" data-cat="uiux">Ui/Ux</button>
-    <button class="filter-btn" data-cat="graphics">Graphics</button>
+<section id="projects" class="section projects-redesign">
+  <div class="projects-header-container">
+    <h2 class="projects-small-title">Projects</h2>
+    <div class="breadcrumb">Home / <span class="highlight">Projects</span></div>
   </div>
-  <div class="graphics-subfilter" style="display:none; margin-top: 1rem;">
-    <button class="graphics-subfilter-btn active" data-graphic-type="all">All</button>
-    <button class="graphics-subfilter-btn" data-graphic-type="poster">Posters</button>
-    <button class="graphics-subfilter-btn" data-graphic-type="flyer">Flyers</button>
-    <button class="graphics-subfilter-btn" data-graphic-type="banner">Banners</button>
+
+  <div class="projects-filter-bar">
+    <div class="filter-track">
+      <button class="filter-btn active" data-cat="all">All Projects</button>
+      <span class="filter-separator">+</span>
+      <button class="filter-btn" data-cat="uiux">UI/UX Design</button>
+      <span class="filter-separator">+</span>
+      <button class="filter-btn" data-cat="web">Website Design</button>
+      <span class="filter-separator">+</span>
+      <button class="filter-btn" data-cat="graphics">Graphics</button>
+      <span class="filter-separator">+</span>
+      <button class="filter-btn" data-cat="app">App Design</button>
+    </div>
   </div>
-  <div class="project-cards">
-    <article class="project-card" data-cat="uiux"
-      data-title="OME Design"
-      data-desc="Modern UI/UX design project showcasing innovative interface solutions and user experience optimization."
-      data-link="https://omefirm.com/"
-      style="background-image:url('ome.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">OME Design</div>
-      </div>
-    </article>
 
-    <article class="project-card" data-cat="uiux"
-      data-title="Hero Home Care"
-      data-desc="End-to-end UI/UX design for a modern home care service platform, focusing on accessibility and trust."
-      data-link="#"
-      style="background-image:url('hero.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Hero Home Care</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="uiux"
-      data-title="Access Home Care"
-      data-desc="UI/UX design for Access Home Care, focusing on intuitive navigation and a comforting user experience for home care services."
-      data-link="https://www.behance.net/gallery/205479411/ACCESS-BANK-ECOMMERCE-APP"
-      style="background-image:url('access.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Access Home Care</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="uiux"
-      data-title="PowerDFI Crypto Website"
-      data-desc="Redesign of the PowerDFI crypto website, delivering a user-friendly interface and modern, credible DeFi experience."
-      data-link="https://www.behance.net/gallery/220107269/POWERDFI-CRYPTO-WEBSITE"
-      style="background-image:url('power dfi.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">PowerDFI Crypto Website</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="uiux"
-      data-title="RALBW Brand Design"
-      data-desc="Comprehensive brand identity and UI/UX design for RALBW, creating a cohesive visual language and user experience."
-      data-link="#"
-      style="background-image:url('ralbw.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">RALBW Brand Design</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="web"
-      data-title="Voting Platform"
-      data-desc="Modern web application for secure digital voting, featuring real-time results and user-friendly interface design."
-      data-link="#"
-      style="background-image:url('voting.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Voting Platform</div>
-      </div>
-    </article>
-    <article class="project-card" data-cat="graphics" data-graphic-type="flyer"
-      data-title="AI Submit"
-      data-desc="A modern and creative AI submit graphic design."
-      data-link="https://drive.google.com/drive/folders/1nIWfxK-rKWaBRLQhIocBQjoPCn6xvptp"
-      style="background-image:url('designs/AI SUBMIT 1.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">AI Submit</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="poster"
-      data-title="Simi Adire Design"
-      data-desc="Vibrant and culturally rich graphic design for Simi Adire."
-      data-link="#"
-      style="background-image:url('designs/SIMI ADIRE DESIGN1 (1).png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Simi Adire Design</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="flyer"
-      data-title="Faithful"
-      data-desc="An elegant and professional graphics design."
-      data-link="#"
-      style="background-image:url('designs/faithful.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Faithful</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="banner"
-      data-title="Godswill Wedding"
-      data-desc="A beautiful and timeless wedding design."
-      data-link="#"
-      style="background-image:url('designs/godswill wedding design1 (1).png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Godswill Wedding</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="poster"
-      data-title="Graphics Lead"
-      data-desc="Creative and engaging graphics lead design."
-      data-link="#"
-      style="background-image:url('designs/graphics lead (1).png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Graphics Lead</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="flyer"
-      data-title="Innovest 3"
-      data-desc="Modern corporate flyer design for Innovest 3."
-      data-link="#"
-      style="background-image:url('designs/innovest 3 copy (1).png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Innovest 3</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="banner"
-      data-title="National Association of History Student"
-      data-desc="A strong identity and design for the NAHS."
-      data-link="#"
-      style="background-image:url('designs/national association of history student.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">National Association of History Student</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="flyer"
-      data-title="Tech Fusion 2.0"
-      data-desc="Futuristic and engaging design for the Tech Fusion 2.0 event."
-      data-link="#"
-      style="background-image:url('designs/tech fusion 2.0 (1).png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">Tech Fusion 2.0</div>
-      </div>
-    </article>
-
-    <article class="project-card" data-cat="graphics" data-graphic-type="poster"
-      data-title="The Youth Life"
-      data-desc="Energetic and vibrant design tailored for youth life."
-      data-link="https://drive.google.com/drive/folders/1X_XSTrmUQKTbh-7gbJ41Yj0ehC7d_9Bd"
-      style="background-image:url('designs/the-youth-life_01.png');">
-      <div class="project-overlay">
-        <div class="project-overlay-title">The Youth Life</div>
-      </div>
-    </article>
+  <div class="projects-main-title">
+    <div class="title-eyebrow"><span class="dots-icon"></span> My Portfolio</div>
+    <h2>Let's Have a <span class="highlight-orange">Look</span><br><span class="highlight-orange">at My Portfolio</span></h2>
   </div>
-  <div class="see-more-graphics-container" style="display:none; text-align: center; margin-top: 2rem;">
-    <a href="https://drive.google.com/drive/folders/1eFcOcToppc3Xz6f0kMS9pcyIpWLkLVOX" target="_blank" rel="noopener noreferrer" class="btn primary">See More Designs ↗</a>
+
+  <div class="project-cards-horizontal">
+    <!-- Project 1 (Image Left) -->
+    <article class="project-h-card img-left" data-cat="uiux">
+      <div class="card-img-box">
+        <img src="ome.png" alt="OME Design">
+      </div>
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">Web Design</span>
+        </div>
+        <h3 class="card-title">OME Design</h3>
+        <p class="card-desc">Modern UI/UX design project showcasing innovative interface solutions and user experience optimization.</p>
+        <a href="https://omefirm.com/" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <!-- Project 2 (Image Right) -->
+    <article class="project-h-card img-right" data-cat="uiux">
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">App Design</span>
+        </div>
+        <h3 class="card-title">Hero Home Care</h3>
+        <p class="card-desc">End-to-end UI/UX design for a modern home care service platform, focusing on accessibility and trust.</p>
+        <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-img-box">
+        <img src="hero.png" alt="Hero Home Care">
+      </div>
+    </article>
+
+    <!-- Project 3 (Image Left) -->
+    <article class="project-h-card img-left" data-cat="uiux">
+      <div class="card-img-box">
+        <img src="access.png" alt="Access Home Care">
+      </div>
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">Wireframe</span>
+        </div>
+        <h3 class="card-title">Access Home Care</h3>
+        <p class="card-desc">UI/UX design for Access Home Care, focusing on intuitive navigation and a comforting user experience for home care services.</p>
+        <a href="https://www.behance.net/gallery/205479411/ACCESS-BANK-ECOMMERCE-APP" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <!-- Project 4 (Image Right) -->
+    <article class="project-h-card img-right" data-cat="uiux">
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">Web Design</span>
+          <span class="tag">UI/UX Design</span>
+        </div>
+        <h3 class="card-title">PowerDFI Crypto Website</h3>
+        <p class="card-desc">Redesign of the PowerDFI crypto website, delivering a user-friendly interface and modern, credible DeFi experience.</p>
+        <a href="https://www.behance.net/gallery/220107269/POWERDFI-CRYPTO-WEBSITE" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-img-box">
+        <img src="power dfi.png" alt="PowerDFI Crypto Website">
+      </div>
+    </article>
+
+    <!-- Project 5 (Image Left) -->
+    <article class="project-h-card img-left" data-cat="uiux">
+      <div class="card-img-box">
+        <img src="ralbw.png" alt="RALBW Brand Design">
+      </div>
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">Brand Identity</span>
+          <span class="tag">UI/UX Design</span>
+        </div>
+        <h3 class="card-title">RALBW Brand Design</h3>
+        <p class="card-desc">Comprehensive brand identity and UI/UX design for RALBW, creating a cohesive visual language and user experience.</p>
+        <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <!-- Project 6 (Image Right) -->
+    <article class="project-h-card img-right" data-cat="web">
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">Web Development</span>
+          <span class="tag">UI/UX Design</span>
+        </div>
+        <h3 class="card-title">Voting Platform</h3>
+        <p class="card-desc">Modern web application for secure digital voting, featuring real-time results and user-friendly interface design.</p>
+        <a href="#" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-img-box">
+        <img src="voting.png" alt="Voting Platform">
+      </div>
+    </article>
+
+    <!-- Project 7 (Image Left - Graphics) -->
+    <article class="project-h-card img-left" data-cat="graphics" data-graphic-type="flyer">
+      <div class="card-img-box" style="background:#111;">
+        <img src="designs/AI SUBMIT 1.png" alt="AI Submit" style="object-fit:contain;">
+      </div>
+      <div class="card-text-box">
+        <div class="card-tags">
+          <span class="tag">Flyer Design</span>
+        </div>
+        <h3 class="card-title">AI Submit</h3>
+        <p class="card-desc">A modern and creative AI submit graphic design.</p>
+        <a href="https://drive.google.com/drive/folders/1nIWfxK-rKWaBRLQhIocBQjoPCn6xvptp" class="card-action-btn"><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <!-- Additional Graphics can be added similarly -->
+    
+  </div>
+
+  <div class="see-more-graphics-container" style="text-align: center; margin-top: 3rem;">
+    <a href="https://drive.google.com/drive/folders/1eFcOcToppc3Xz6f0kMS9pcyIpWLkLVOX" target="_blank" rel="noopener noreferrer" class="btn primary btn-pill">Load More <span>&rarr;</span></a>
   </div>
 </section>
 
@@ -531,19 +523,192 @@
   </div>
 </section>
 
-<section id="contact" class="section alt">
-  <h2>Contact Me</h2>
-  <form id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="_replyto" placeholder="Email" required>
-    <textarea name="message" rows="4" placeholder="Tell me about your project…"></textarea>
-    <button type="submit" class="btn primary">Send 🚀</button>
-  </form>
-  <div class="socials">
-    <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="adefemioluwatobi13@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+<section class="cta-banner">
+  <div class="cta-content">
+    <h2>Got a Dream Project?<br>Let's Create It Together!</h2>
+    <a href="#contact" class="btn letstalk-btn cta-btn">Contact Me <span>&rarr;</span></a>
+    
+    <div class="cta-floating-pills">
+      <span class="fpill p1">Wireframe Design</span>
+      <span class="fpill p2">Prototype</span>
+      <span class="fpill p3">Brand Identity</span>
+      <span class="fpill p4">Mobile App Design</span>
+      <span class="fpill p5">UI/UX Design</span>
+      <span class="fpill p6">UI Design</span>
+      <span class="fpill p7">Website Design</span>
+      <span class="fpill p8">Illustration</span>
+      <span class="fpill p9">User Research</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact-redesign">
+  <div class="contact-header">
+    <p class="services-subtitle" style="justify-content:center;"><span class="dots-icon"></span> Contact Me</p>
+    <h2>Let's Talk for Your<br><span class="highlight-orange">Next Projects</span></h2>
+  </div>
+
+  <div class="contact-split">
+    <!-- Left: Form -->
+    <div class="contact-left">
+      <form id="contactFormNew" action="https://formspree.io/f/yourFormID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" name="name" placeholder="Ex. John Doe" required>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="_replyto" placeholder="example@gmail.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="text" name="phone" placeholder="Enter Phone Number" required>
+          </div>
+          <div class="form-group">
+            <label>I'm Interested In *</label>
+            <select name="interest" required>
+              <option value="">Select</option>
+              <option value="uiux">UI/UX Design</option>
+              <option value="web">Web Development</option>
+              <option value="app">App Development</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Budget Range (USD) *</label>
+            <select name="budget" required>
+              <option value="">Select Range</option>
+              <option value="<1k">< $1,000</option>
+              <option value="1k-5k">$1,000 - $5,000</option>
+              <option value=">5k">> $5,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Country *</label>
+            <select name="country" required>
+              <option value="">Select Country</option>
+              <option value="us">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your Message *</label>
+          <textarea name="message" rows="4" placeholder="Enter here.." required></textarea>
+        </div>
+        <button type="submit" class="btn submit-btn">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Right: Info Card -->
+    <div class="contact-right">
+      <div class="info-card">
+        <div class="info-section">
+          <h4>Address</h4>
+          <p>2464 Royal Ln. Mesa,<br>New Jersey 45463</p>
+        </div>
+        <div class="info-section">
+          <h4>Contact</h4>
+          <p>Phone: +0123-456-789<br>Email: example@gmail.com</p>
+        </div>
+        <div class="info-section">
+          <h4>Time</h4>
+          <p>Monday - Friday: 10:00 - 20:00<br>Saturday - Sunday: 11:00 - 18:00</p>
+        </div>
+        <div class="info-social-footer">
+          <h4>Stay Connected</h4>
+          <div class="info-social-links">
+            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-globe"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="https://www.linkedin.com/in/adefemi-oluwatobi-98b69a295/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/femi-tobi?tab=overview&from=2025-07-01&to=2025-07-13"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs Section -->
+<section id="faqs" class="section faq-redesign">
+  <div class="faq-header-left">
+    <p class="services-subtitle"><span class="dots-icon"></span> FAQs</p>
+    <h2>Question? <span class="highlight-orange">Look here.</span></h2>
+    
+    <div class="faq-ask-card">
+      <div class="faq-ask-icon"><i class="fas fa-comments"></i></div>
+      <h3>You have different<br>questions? Ask Away!</h3>
+      <p>Your Questions, My Answers.<br>Quick Responses Guaranteed.</p>
+      <a href="#contact" class="btn faq-contact-btn">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="faq-accordion-right">
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h4>What industries do you specialize in?</h4>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </div>
+      <div class="faq-item-body">
+        <p>I have experience across various industries including fintech, healthcare, e-commerce, and education.</p>
+      </div>
+    </div>
+
+    <div class="faq-item active">
+      <div class="faq-item-header">
+        <h4>Do you design mobile and web applications?</h4>
+        <span class="faq-icon"><i class="fas fa-minus"></i></span>
+      </div>
+      <div class="faq-item-body" style="display:block;">
+        <p>Yes, I design responsive mobile apps, websites, dashboards, SaaS platforms, and digital product experiences.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h4>Do you create wireframes and prototypes?</h4>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </div>
+      <div class="faq-item-body">
+        <p>Absolutely. Wireframing and rapid prototyping are core parts of my UX design process.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h4>Do you work with startups and businesses?</h4>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </div>
+      <div class="faq-item-body">
+        <p>Yes! Whether you are an early-stage startup or an established enterprise, I can help.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h4>How long does a product design project take?</h4>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </div>
+      <div class="faq-item-body">
+        <p>Timelines vary greatly based on scope, but a typical MVP design takes 3 to 6 weeks.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h4>What is your product design process?</h4>
+        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+      </div>
+      <div class="faq-item-body">
+        <p>My process includes discovery, research, wireframing, high-fidelity design, prototyping, and developer handoff.</p>
+      </div>
+    </div>
   </div>
 </section>
 

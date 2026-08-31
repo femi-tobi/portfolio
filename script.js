@@ -10,15 +10,32 @@ themeToggle.addEventListener('click',()=>{setTheme(document.documentElement.getA
 
 // Filter projects
 const filterBtns=document.querySelectorAll('.filter-btn');
-const projectCards=document.querySelectorAll('.project-card');
-filterBtns.forEach(btn=>btn.addEventListener('click',()=>{filterBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const cat=btn.dataset.cat;projectCards.forEach(card=>{card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';});}));
+const projectCards=document.querySelectorAll('.project-card, .project-h-card');
+filterBtns.forEach(btn=>btn.addEventListener('click',()=>{
+  filterBtns.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat=btn.dataset.cat;
+  projectCards.forEach(card=>{
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'flex':'none';
+    if(card.classList.contains('project-card') && card.style.display==='flex') card.style.display='block';
+  });
+}));
 
 // Project modal
 const modal=document.getElementById('projectModal');
 const modalTitle=document.getElementById('modalTitle');
 const modalDesc=document.getElementById('modalDesc');
 const modalLink=document.getElementById('modalLink');
-projectCards.forEach(card=>card.addEventListener('click',()=>{modalTitle.textContent=card.dataset.title;modalDesc.textContent=card.dataset.desc;modalLink.href=card.dataset.link;modal.style.display='flex';}));
+projectCards.forEach(card=>{
+  if(card.classList.contains('project-card')) {
+    card.addEventListener('click',()=>{
+      modalTitle.textContent=card.dataset.title;
+      modalDesc.textContent=card.dataset.desc;
+      modalLink.href=card.dataset.link;
+      modal.style.display='flex';
+    });
+  }
+});
 document.querySelector('.modal .close').addEventListener('click',()=>modal.style.display='none');
 window.addEventListener('click',e=>{if(e.target===modal)modal.style.display='none';});
 
@@ -488,5 +505,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+  });
+});
+
+// FAQ Accordion
+const faqHeaders = document.querySelectorAll('.faq-item-header');
+faqHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const item = header.parentElement;
+    const body = item.querySelector('.faq-item-body');
+    const icon = item.querySelector('.faq-icon i');
+    
+    // Toggle current
+    const isActive = item.classList.contains('active');
+    
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-item-body').style.display = 'none';
+      i.querySelector('.faq-icon i').className = 'fas fa-plus';
+    });
+    
+    if (!isActive) {
+      item.classList.add('active');
+      body.style.display = 'block';
+      icon.className = 'fas fa-minus';
+    }
   });
 });
