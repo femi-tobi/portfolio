@@ -108,31 +108,6 @@ nav.nav-hidden {
   pointer-events: none;
   white-space: nowrap;
   letter-spacing: -2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-bg-text span {
-  position: absolute;
-  white-space: nowrap;
-}
-.bg-text-1 {
-  animation: fade-text-1 8s infinite ease-in-out;
-}
-.bg-text-2 {
-  animation: fade-text-2 8s infinite ease-in-out;
-}
-
-@keyframes fade-text-1 {
-  0%, 40% { opacity: 1; }
-  50%, 90% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes fade-text-2 {
-  0%, 40% { opacity: 0; }
-  50%, 90% { opacity: 1; }
-  100% { opacity: 0; }
 }
 [data-theme="dark"] .hero-bg-text {
   opacity: 0.08;
