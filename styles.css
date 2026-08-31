@@ -798,6 +798,107 @@ footer {
   cursor: pointer;
   display: inline-block;
 }
+
+/* Welcome Modal */
+.welcome-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 13, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.welcome-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.welcome-content {
+  background: var(--card-bg);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,255,0.05);
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+}
+.welcome-modal.show .welcome-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.welcome-content h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+.welcome-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.welcome-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: var(--bg-alt);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.welcome-btn:hover {
+  background: var(--card-bg);
+  border-color: #6C63FF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.15);
+}
+.welcome-btn .icon {
+  font-size: 1.5rem;
+}
+.welcome-skip {
+  background: none;
+  border: none;
+  color: #b0b8d1;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.welcome-skip:hover {
+  color: var(--brand);
+}
+@media (min-width: 600px) {
+  .welcome-options {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .welcome-btn {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    flex: 1;
+  }
+  .welcome-btn .icon {
+    font-size: 2.5rem;
+  }
+}
+
 .testimonial-dot.active {
   background: #6C63FF;
   transform: scale(1.2);

@@ -129,9 +129,58 @@ document.addEventListener('DOMContentLoaded', () => {
   if (splash) {
     setTimeout(() => {
       splash.classList.add('splash-hide');
-      setTimeout(() => splash.remove(), 800);
+      setTimeout(() => {
+        splash.remove();
+        // Show Welcome Modal
+        const welcomeModal = document.getElementById('welcome-modal');
+        if (welcomeModal) {
+          welcomeModal.style.display = 'flex';
+          setTimeout(() => welcomeModal.classList.add('show'), 50);
+        }
+      }, 800);
     }, 1700);
   }
+});
+
+// Welcome Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const welcomeModal = document.getElementById('welcome-modal');
+  const skipBtn = document.querySelector('.welcome-skip');
+  const welcomeBtns = document.querySelectorAll('.welcome-btn');
+
+  function closeWelcomeModal() {
+    if (welcomeModal) {
+      welcomeModal.classList.remove('show');
+      setTimeout(() => {
+        welcomeModal.style.display = 'none';
+      }, 500);
+    }
+  }
+
+  if (skipBtn) {
+    skipBtn.addEventListener('click', closeWelcomeModal);
+  }
+
+  welcomeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+      closeWelcomeModal();
+      
+      // Wait for modal to fade out, then scroll and filter
+      setTimeout(() => {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+          projectsSection.scrollIntoView({ behavior: 'smooth' });
+          
+          // Click the correct filter button
+          const filterBtn = document.querySelector(`.filter-btn[data-cat="${target}"]`);
+          if (filterBtn) {
+            filterBtn.click();
+          }
+        }
+      }, 500);
+    });
+  });
 });
 
 // Scroll-to-top button logic
