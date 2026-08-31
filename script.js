@@ -411,6 +411,8 @@ if (testimonialForm) {
 
   function showGraphicsSubfilter(show) {
     if (graphicsSubfilter) graphicsSubfilter.style.display = show ? 'flex' : 'none';
+    const seeMore = document.querySelector('.see-more-graphics-container');
+    if (seeMore) seeMore.style.display = show ? 'block' : 'none';
   }
 
   // Show/hide graphics subfilter on main filter click
@@ -422,7 +424,7 @@ if (testimonialForm) {
         showGraphicsSubfilter(false);
         // Reset subfilter to 'all' when leaving graphics
         graphicsSubBtns.forEach(b => b.classList.remove('active'));
-        graphicsSubBtns[0].classList.add('active');
+        if(graphicsSubBtns.length > 0) graphicsSubBtns[0].classList.add('active');
       }
     });
   });
