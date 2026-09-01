@@ -2043,9 +2043,9 @@ footer {
 /* CV Dropdown */
 .cv-dropdown {
   position: absolute;
-  top: 110%;
+  bottom: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
+  transform: translateX(-50%) translateY(10px);
   background: white;
   border-radius: 0.8rem;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
