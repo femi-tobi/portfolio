@@ -563,3 +563,72 @@ faqHeaders.forEach(header => {
     }
   });
 });
+
+// GSAP Cinematic Hero Animation
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    // Desktop/Tablet Cinematic Animation
+    mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      const heroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero-new",
+          start: "top top",
+          end: "+=200%",
+          pin: true,
+          scrub: 1,
+        }
+      });
+
+      // Step 1: Fade out UI elements and scale bg text
+      heroTl.to(".intro-text-bottom", { opacity: 0, x: -50, duration: 1 }, 0)
+            .to(".left-pill", { opacity: 0, x: -50, rotation: -20, duration: 1 }, 0)
+            .to(".right-card", { opacity: 0, x: 50, y: 50, duration: 1 }, 0)
+            .to(".hero-bg-text", { scale: 1.5, x: 100, opacity: 0.01, duration: 4 }, 0);
+
+      // Step 2: Expand the portrait arch to match navbar width
+      heroTl.to(".hero-center-arch", {
+        width: "min(90vw, 1100px)",
+        height: "70vh",
+        borderRadius: "40px",
+        duration: 3,
+        ease: "power2.inOut"
+      }, 0.5);
+
+      // Step 3: Parallax zoom the portrait image itself
+      heroTl.to(".profile-pic-arch", {
+        scale: 1.15,
+        borderRadius: "40px",
+        duration: 3,
+        ease: "power2.inOut"
+      }, 0.5);
+
+      // Step 4: Fade in a dark overlay to transition smoothly to the next section
+      heroTl.to(".hero-overlay", {
+        opacity: 1,
+        duration: 1,
+        ease: "power1.in"
+      }, 2.5);
+    });
+
+    // Mobile / Reduced Motion Fallback
+    mm.add("(max-width: 767px), (prefers-reduced-motion: reduce)", () => {
+      const heroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero-new",
+          start: "top top",
+          end: "+=100%",
+          pin: true,
+          scrub: 1,
+        }
+      });
+      
+      heroTl.to(".intro-text-bottom, .left-pill, .right-card", { opacity: 0, duration: 1 }, 0)
+            .to(".hero-center-arch", { scale: 1.2, duration: 2 }, 0)
+            .to(".hero-overlay", { opacity: 1, duration: 1 }, 1);
+    });
+  }
+});

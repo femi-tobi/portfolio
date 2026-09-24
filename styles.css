@@ -177,13 +177,25 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   justify-content: center;
   padding-top: 6rem;
   overflow: hidden;
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero-bg-text {
   position: absolute;
   top: 50%;
   left: 50%;
+  /* Use transform for centering initially, GSAP will manage it later. Use will-change for performance */
   transform: translate(-50%, -50%);
+  will-change: transform, opacity;
   font-size: clamp(8rem, 25vw, 22rem);
   font-weight: 900;
   color: var(--text);
@@ -209,17 +221,21 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   z-index: 1;
   box-shadow: 0 30px 60px rgba(63, 94, 252, 0.3);
   margin: 0 auto;
+  transform-origin: center 50%;
+  will-change: transform, border-radius, width, height;
 }
 
 .profile-pic-arch {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: bottom;
+  object-position: center 50%;
   border-radius: 200px 200px 0 0;
   /* Mask to clip bottom smoothly if needed, but border-radius top works */
   mask-image: linear-gradient(to top, transparent 0%, black 15%);
   -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+  transform-origin: center 50%;
+  will-change: transform, border-radius;
 }
 
 .floating-pill {
