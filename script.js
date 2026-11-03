@@ -342,7 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
 // Scroll-to-top button logic
 const scrollToTopBtn = document.getElementById('scrollToTop');
 window.addEventListener('scroll', function () {
@@ -765,4 +764,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// Scroll-Driven Driving Car along bottom road
+(function initScrollCar() {
+  const car = document.getElementById('scrollCar');
+  const roadProgress = document.querySelector('.scroll-road-progress');
+  if (!car) return;
+
+  let lastScrollY = window.scrollY;
+  let driveTimeout = null;
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll <= 0) return;
+
+    const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+    const windowWidth = window.innerWidth;
+    const carWidth = car.offsetWidth || 52;
+    const trackWidth = windowWidth - carWidth - 16;
+    const currentX = progress * trackWidth;
+
+    // Move car and fill progress line
+    car.style.transform = `translateX(${currentX}px)`;
+    if (roadProgress) {
+      roadProgress.style.width = `${progress * 100}%`;
+    }
+
+    // Direction detection (flip car when scrolling upwards)
+    if (scrollY < lastScrollY - 2) {
+      car.classList.add('reversing');
+    } else if (scrollY > lastScrollY + 2) {
+      car.classList.remove('reversing');
+    }
+    lastScrollY = scrollY;
+
+    // Driving suspension & exhaust smoke animation
+    car.classList.add('driving');
+    clearTimeout(driveTimeout);
+    driveTimeout = setTimeout(() => {
+      car.classList.remove('driving');
+    }, 150);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+})();
 
