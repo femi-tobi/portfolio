@@ -749,6 +749,192 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   color: var(--brand);
 }
 
+/* ========================================================
+   STACKED CARDS DECK (INTERACTIVE SHOWCASE)
+   ======================================================== */
+.cards-deck-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.deck-card {
+  position: sticky;
+  top: calc(90px + (var(--deck-index, 1) * 18px));
+  z-index: var(--deck-index, 1);
+  border-radius: 2rem;
+  padding: 3.5rem 3.5rem 3rem 3.5rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+/* Card Themes */
+.deck-card-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+}
+.deck-card-orange {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 50%, #f97316 100%);
+}
+.deck-card-purple {
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #8b5cf6 100%);
+}
+.deck-card-emerald {
+  background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #10b981 100%);
+}
+.deck-card-dark {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #374151 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card Top Section */
+.deck-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.deck-card-info {
+  flex: 1;
+  min-width: 280px;
+}
+.deck-card-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.6;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+.deck-card-tags {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+.deck-tag {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  letter-spacing: 0.4px;
+}
+.deck-card-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+.deck-card-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 650px;
+}
+
+/* CTA Pill Button */
+.deck-card-action {
+  align-self: center;
+}
+.deck-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #ffffff;
+  color: #0f172a !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
+  border-radius: 99px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  white-space: nowrap;
+}
+.deck-btn-cta i {
+  transition: transform 0.3s ease;
+}
+.deck-btn-cta:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  background: #f8fafc;
+}
+.deck-btn-cta:hover i {
+  transform: translateX(4px);
+}
+
+/* Device Mockups Preview Strip */
+.deck-card-preview-strip {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.deck-preview-item {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deck-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.deck-card:hover .deck-preview-item img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 900px) {
+  .deck-card {
+    padding: 2.2rem 1.8rem;
+    gap: 1.8rem;
+    top: calc(80px + (var(--deck-index, 1) * 12px));
+  }
+  .deck-card-preview-strip {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .deck-preview-item {
+    height: 220px;
+  }
+  .deck-preview-sub {
+    display: none;
+  }
+  .deck-card-action {
+    align-self: flex-start;
+    width: 100%;
+  }
+  .deck-btn-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .project-cards-horizontal {
   display: flex;
   flex-direction: column;

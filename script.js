@@ -1,43 +1,83 @@
 // Section reveal
-const observer=new IntersectionObserver(entries=>{entries.forEach(ent=>{if(ent.isIntersecting){ent.target.classList.add('show');}})},{threshold:0.2});
-document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
+const observer = new IntersectionObserver(entries => { entries.forEach(ent => { if (ent.isIntersecting) { ent.target.classList.add('show'); } }) }, { threshold: 0.2 });
+document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
 
-// Theme toggle
-const themeToggle=document.getElementById('themeToggle');
-function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);themeToggle.textContent=t==='dark'?'🌞':'🌙';}
-const savedTheme=localStorage.getItem('theme')||'dark';setTheme(savedTheme);
-themeToggle.addEventListener('click',()=>{setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');});
+// Theme detection & toggle
+const themeToggle = document.getElementById('themeToggle');
+
+function getPreferredTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) return savedTheme;
+  // Detect device/OS system color scheme
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function updateThemeToggleUI(theme) {
+  if (!themeToggle) return;
+  themeToggle.innerHTML = theme === 'dark'
+    ? '<i class="fas fa-sun" title="Switch to light mode"></i>'
+    : '<i class="fas fa-moon" title="Switch to dark mode"></i>';
+}
+
+function setTheme(t, persist = true) {
+  document.documentElement.setAttribute('data-theme', t);
+  if (persist) {
+    localStorage.setItem('theme', t);
+  }
+  updateThemeToggleUI(t);
+}
+
+// Initialize theme based on user preference or device OS theme
+const initialTheme = getPreferredTheme();
+setTheme(initialTheme, Boolean(localStorage.getItem('theme')));
+
+// Listen for OS system theme changes if user has not manually set a preference
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches ? 'dark' : 'light', false);
+    }
+  });
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme, true);
+  });
+}
 
 // Filter projects
-const filterBtns=document.querySelectorAll('.filter-btn');
-const projectCards=document.querySelectorAll('.project-card, .project-h-card');
-filterBtns.forEach(btn=>btn.addEventListener('click',()=>{
-  filterBtns.forEach(b=>b.classList.remove('active'));
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card, .project-h-card, .deck-card');
+filterBtns.forEach(btn => btn.addEventListener('click', () => {
+  filterBtns.forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const cat=btn.dataset.cat;
-  projectCards.forEach(card=>{
-    card.style.display=(cat==='all'||card.dataset.cat===cat)?'flex':'none';
-    if(card.classList.contains('project-card') && card.style.display==='flex') card.style.display='block';
+  const cat = btn.dataset.cat;
+  projectCards.forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+    if (card.classList.contains('project-card') && card.style.display === 'flex') card.style.display = 'block';
   });
 }));
 
 // Project modal
-const modal=document.getElementById('projectModal');
-const modalTitle=document.getElementById('modalTitle');
-const modalDesc=document.getElementById('modalDesc');
-const modalLink=document.getElementById('modalLink');
-projectCards.forEach(card=>{
-  if(card.classList.contains('project-card')) {
-    card.addEventListener('click',()=>{
-      modalTitle.textContent=card.dataset.title;
-      modalDesc.textContent=card.dataset.desc;
-      modalLink.href=card.dataset.link;
-      modal.style.display='flex';
+const modal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalLink = document.getElementById('modalLink');
+projectCards.forEach(card => {
+  if (card.classList.contains('project-card')) {
+    card.addEventListener('click', () => {
+      modalTitle.textContent = card.dataset.title;
+      modalDesc.textContent = card.dataset.desc;
+      modalLink.href = card.dataset.link;
+      modal.style.display = 'flex';
     });
   }
 });
-document.querySelector('.modal .close').addEventListener('click',()=>modal.style.display='none');
-window.addEventListener('click',e=>{if(e.target===modal)modal.style.display='none';});
+document.querySelector('.modal .close').addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
 // Responsive nav hamburger
 const hamburger = document.querySelector('.hamburger');
@@ -99,11 +139,11 @@ animateCursorIcon();
 
 // Section detection and icon switching
 const sections = [
-  {id: 'hero', icon: figmaIcon},
-  {id: 'services', icon: flutterIcon},
-  {id: 'projects', icon: figmaIcon},
-  {id: 'experience', icon: flutterIcon},
-  {id: 'contact', icon: figmaIcon}
+  { id: 'hero', icon: figmaIcon },
+  { id: 'services', icon: flutterIcon },
+  { id: 'projects', icon: figmaIcon },
+  { id: 'experience', icon: flutterIcon },
+  { id: 'contact', icon: figmaIcon }
 ];
 
 function updateCursorIcon() {
@@ -112,7 +152,7 @@ function updateCursorIcon() {
     const el = document.querySelector(`#${section.id}`);
     if (el) {
       const rect = el.getBoundingClientRect();
-      if (rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2) {
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
         figmaIcon.style.display = 'none';
         flutterIcon.style.display = 'none';
         section.icon.style.display = 'block';
@@ -182,13 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const target = btn.getAttribute('data-target');
       closeWelcomeModal();
-      
+
       // Wait for modal to fade out, then scroll and filter
       setTimeout(() => {
         const projectsSection = document.getElementById('projects');
         if (projectsSection) {
           projectsSection.scrollIntoView({ behavior: 'smooth' });
-          
+
           // Click the correct filter button
           const filterBtn = document.querySelector(`.filter-btn[data-cat="${target}"]`);
           if (filterBtn) {
@@ -218,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cvDropdown.classList.remove('show');
       }
     });
-    
+
     // Close when a download link is clicked
     if (downloadLinks) {
       downloadLinks.forEach(link => {
@@ -232,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Scroll-to-top button logic
 const scrollToTopBtn = document.getElementById('scrollToTop');
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   if (window.scrollY > 200) {
     scrollToTopBtn.style.display = 'flex';
     scrollToTopBtn.style.opacity = '1';
@@ -243,7 +283,7 @@ window.addEventListener('scroll', function() {
     }, 300);
   }
 });
-scrollToTopBtn.addEventListener('click', function() {
+scrollToTopBtn.addEventListener('click', function () {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
@@ -379,7 +419,7 @@ const testimonialForm = document.getElementById('testimonialForm');
 // Show/hide testimonial form logic
 const showFormBtn = document.getElementById('showTestimonialForm');
 if (showFormBtn && testimonialForm) {
-  showFormBtn.addEventListener('click', function() {
+  showFormBtn.addEventListener('click', function () {
     testimonialForm.style.display = 'flex';
     showFormBtn.style.display = 'none';
     testimonialForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -407,7 +447,7 @@ async function uploadToCloudinary(file) {
 }
 
 if (testimonialForm) {
-  testimonialForm.addEventListener('submit', async function(e) {
+  testimonialForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const name = document.getElementById('testimonialName').value.trim();
     const role = document.getElementById('testimonialRole').value.trim();
@@ -450,7 +490,7 @@ if (testimonialForm) {
 }
 
 // Graphics subfilter logic
-(function(){
+(function () {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const graphicsSubfilter = document.querySelector('.graphics-subfilter');
   const graphicsSubBtns = document.querySelectorAll('.graphics-subfilter-btn');
@@ -464,21 +504,21 @@ if (testimonialForm) {
 
   // Show/hide graphics subfilter on main filter click
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       if (btn.dataset.cat === 'graphics') {
         showGraphicsSubfilter(true);
       } else {
         showGraphicsSubfilter(false);
         // Reset subfilter to 'all' when leaving graphics
         graphicsSubBtns.forEach(b => b.classList.remove('active'));
-        if(graphicsSubBtns.length > 0) graphicsSubBtns[0].classList.add('active');
+        if (graphicsSubBtns.length > 0) graphicsSubBtns[0].classList.add('active');
       }
     });
   });
 
   // Graphics subfilter click logic
   graphicsSubBtns.forEach(subBtn => {
-    subBtn.addEventListener('click', function() {
+    subBtn.addEventListener('click', function () {
       graphicsSubBtns.forEach(b => b.classList.remove('active'));
       subBtn.classList.add('active');
       const type = subBtn.dataset.graphicType;
@@ -501,21 +541,21 @@ if (testimonialForm) {
 // Services Accordion Logic
 document.addEventListener('DOMContentLoaded', () => {
   const accordionItems = document.querySelectorAll('.accordion-item');
-  
+
   accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
-    
+
     header.addEventListener('click', () => {
       // Check if this item is already active
       const isActive = item.classList.contains('active');
-      
+
       // Close all items
       accordionItems.forEach(acc => {
         acc.classList.remove('active');
         const body = acc.querySelector('.accordion-body');
         if (body) body.style.display = 'none';
       });
-      
+
       // If it wasn't active, open it
       if (!isActive) {
         item.classList.add('active');
@@ -545,17 +585,17 @@ faqHeaders.forEach(header => {
     const item = header.parentElement;
     const body = item.querySelector('.faq-item-body');
     const icon = item.querySelector('.faq-icon i');
-    
+
     // Toggle current
     const isActive = item.classList.contains('active');
-    
+
     // Close all
     document.querySelectorAll('.faq-item').forEach(i => {
       i.classList.remove('active');
       i.querySelector('.faq-item-body').style.display = 'none';
       i.querySelector('.faq-icon i').className = 'fas fa-plus';
     });
-    
+
     if (!isActive) {
       item.classList.add('active');
       body.style.display = 'block';
@@ -585,9 +625,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Step 1: Fade out UI elements and scale bg text
       heroTl.to(".intro-text-bottom", { opacity: 0, x: -50, duration: 1 }, 0)
-            .to(".left-pill", { opacity: 0, x: -50, rotation: -20, duration: 1 }, 0)
-            .to(".right-card", { opacity: 0, x: 50, y: 50, duration: 1 }, 0)
-            .to(".hero-bg-text", { scale: 1.5, x: 100, opacity: 0.01, duration: 4 }, 0);
+        .to(".left-pill", { opacity: 0, x: -50, rotation: -20, duration: 1 }, 0)
+        .to(".right-card", { opacity: 0, x: 50, y: 50, duration: 1 }, 0)
+        .to(".hero-bg-text", { scale: 1.5, x: 100, opacity: 0.01, duration: 4 }, 0);
 
       // Step 2: Expand the portrait arch to match navbar width
       heroTl.to(".hero-center-arch", {
@@ -625,10 +665,30 @@ document.addEventListener('DOMContentLoaded', () => {
           scrub: 1,
         }
       });
-      
+
       heroTl.to(".intro-text-bottom, .left-pill, .right-card", { opacity: 0, duration: 1 }, 0)
-            .to(".hero-center-arch", { scale: 1.2, duration: 2 }, 0)
-            .to(".hero-overlay", { opacity: 1, duration: 1 }, 1);
+        .to(".hero-center-arch", { scale: 1.2, duration: 2 }, 0)
+        .to(".hero-overlay", { opacity: 1, duration: 1 }, 1);
     });
+
+    // Stacked Cards Deck Scaling Parallax
+    const deckCards = gsap.utils.toArray('.deck-card');
+    if (deckCards.length > 0) {
+      deckCards.forEach((card, index) => {
+        if (index < deckCards.length - 1) {
+          gsap.to(card, {
+            scale: 0.94,
+            opacity: 0.85,
+            ease: "none",
+            scrollTrigger: {
+              trigger: deckCards[index + 1],
+              start: "top 80%",
+              end: "top 25%",
+              scrub: true
+            }
+          });
+        }
+      });
+    }
   }
 });
