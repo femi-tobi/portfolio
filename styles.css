@@ -849,12 +849,13 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   max-width: var(--container-width);
   margin: 0 auto;
   position: relative;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
 .deck-card {
+  position: -webkit-sticky;
   position: sticky;
-  top: calc(90px + (var(--deck-index, 1) * 18px));
+  top: calc(90px + (var(--deck-index, 1) * 16px));
   z-index: var(--deck-index, 1);
   border-radius: 2rem;
   padding: 3.5rem 3.5rem 3rem 3.5rem;
@@ -865,6 +866,7 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   overflow: hidden;
+  will-change: transform;
 }
 
 /* Card Themes */
@@ -999,39 +1001,46 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
 }
 
 @media (max-width: 900px) {
+  .cards-deck-container {
+    gap: 2rem;
+    padding-bottom: 6rem;
+  }
   .deck-card {
-    padding: 2.2rem 1.4rem;
-    gap: 1.5rem;
-    top: calc(75px + (var(--deck-index, 1) * 8px));
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(75px + (var(--deck-index, 1) * 12px));
+    padding: 1.8rem 1.2rem;
+    gap: 1.2rem;
     border-radius: 1.5rem;
   }
   .deck-card-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .deck-card-desc {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
   .deck-card-preview-strip {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0.8rem;
+    gap: 0.8rem;
+    padding: 0.7rem;
     border-radius: 1rem;
   }
   .deck-preview-item {
-    height: 200px;
+    height: 175px;
   }
   .deck-preview-sub {
     display: none;
   }
   .deck-card-action {
-    align-self: flex-start;
+    align-self: stretch;
     width: 100%;
   }
   .deck-btn-cta {
     width: 100%;
     justify-content: center;
-    padding: 0.8rem 1.4rem;
-    font-size: 0.9rem;
+    padding: 0.75rem 1.2rem;
+    font-size: 0.88rem;
   }
 }
 
@@ -2215,89 +2224,228 @@ footer {
   pointer-events: none;
 }
 
-#experience {
+/* ========================================================
+   EXPERIENCE SECTION - BENTO GRID REDESIGN
+   ======================================================== */
+.experience-redesign {
   background: transparent;
-  padding: 6rem 1.5rem 4rem 1.5rem;
-  border-radius: 0;
-  box-shadow: none;
+  padding: 6rem 1.5rem 5rem 1.5rem;
   max-width: var(--container-width);
   margin: 0 auto;
 }
-#experience h2 {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 800;
-  text-align: center;
-  color: var(--text);
-  margin-bottom: 3rem;
+
+.exp-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
-.timeline {
+.exp-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  padding: 2.2rem;
   position: relative;
-  margin: 2rem 0 0 0;
-  padding-left: 0;
-  border-left: none;
-}
-
-.timeline-item {
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 2.5rem;
-  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.timeline-dot {
-  width: 16px;
-  height: 16px;
-  background: var(--card-bg);
-  border: 3px solid var(--brand);
-  border-radius: 50%;
-  margin-right: 24px;
-  margin-top: 8px;
-  box-shadow: 0 0 16px 2px var(--brand), var(--shadow);
-  z-index: 1;
-  transition: box-shadow 0.3s;
+.exp-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 167, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
-.timeline-date {
+/* Card 1: Hero Leadership (CTO) - Spans 7 cols */
+.exp-card-hero {
+  grid-column: span 7;
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(255, 167, 0, 0.05) 100%);
+  border: 1.5px solid rgba(255, 167, 0, 0.35);
+}
+
+/* Card 2: Award Winner - Spans 5 cols */
+.exp-card-award {
+  grid-column: span 5;
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.35);
+}
+
+/* Card 3: AI Summit - Spans 6 cols */
+.exp-card:nth-child(3) {
+  grid-column: span 6;
+}
+
+/* Card 4: Multi-brand / E-Commerce - Spans 6 cols */
+.exp-card:nth-child(4) {
+  grid-column: span 6;
+}
+
+/* Badges & Year */
+.exp-card-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-year {
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--brand);
-  background: var(--card-bg);
-  border-radius: 50%;
-  padding: 0.5rem 1rem;
-  margin-right: 24px;
-  font-size: 1rem;
-  min-width: 60px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  position: relative;
-  top: 0;
-  border: 1.5px solid var(--brand);
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
-.timeline-content {
-  background: var(--card-bg);
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--text);
-  min-width: 220px;
-  max-width: 400px;
-  border-left: 4px solid var(--brand);
-  transition: box-shadow 0.3s;
-}
-
-.timeline-content h3 {
-  margin: 0 0 0.3rem 0;
-  font-size: 1.1rem;
+.exp-tag-pill {
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.8rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  border: 1px solid var(--border-color);
 }
 
-.timeline-content p {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.85;
+.exp-tag-pill.active {
+  background: rgba(255, 167, 0, 0.15);
+  color: #FFA700;
+  border-color: rgba(255, 167, 0, 0.4);
+}
+
+.exp-tag-pill.award-pill {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Header with Icon */
+.exp-role-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.exp-company-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 1rem;
+  background: rgba(255, 167, 0, 0.12);
+  color: #FFA700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 167, 0, 0.25);
+}
+
+.exp-company-logo.award-logo {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.exp-role-title {
+  font-size: 1.35rem;
+  font-weight: 800;
   color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+}
+
+.exp-company-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.exp-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Metrics Row */
+.exp-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.exp-metric-pill {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-val {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #FFA700;
+}
+
+.metric-lbl {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+
+/* Skills Chips */
+.exp-skills-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.exp-skills-chips span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 992px) {
+  .exp-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .exp-card,
+  .exp-card-hero,
+  .exp-card-award,
+  .exp-card:nth-child(3),
+  .exp-card:nth-child(4) {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-redesign {
+    padding: 4rem 1rem 3rem 1rem;
+  }
+  .exp-card {
+    padding: 1.6rem 1.2rem;
+    border-radius: 1.2rem;
+  }
+  .exp-role-title {
+    font-size: 1.15rem;
+  }
 }
 
 /* Skills Section */
