@@ -2324,16 +2324,18 @@ canvas#starfield {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto 3.5rem auto;
-  overflow: hidden;
+  overflow: visible;
   user-select: none;
+  display: flex;
+  justify-content: center;
 }
 
 .gander-wordmark {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 0.5vw;
+  gap: clamp(2px, 0.4vw, 10px);
 }
 
 .gander-letter {
@@ -2343,12 +2345,13 @@ canvas#starfield {
   justify-content: center;
   font-family: 'Cabinet Grotesk', 'Syne', 'Poppins', sans-serif;
   font-weight: 900;
-  font-size: clamp(3.5rem, 13vw, 12rem);
-  line-height: 0.85;
+  font-size: clamp(2.2rem, 9.2vw, 9.5rem);
+  line-height: 0.9;
   color: #f7f6f1;
   text-transform: uppercase;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  flex-shrink: 0;
 }
 
 .gander-letter:hover {
@@ -2460,11 +2463,11 @@ canvas#starfield {
 
   .gander-wordmark {
     justify-content: center;
-    gap: 0.2vw;
+    gap: 1px;
   }
 
   .gander-letter {
-    font-size: clamp(2.4rem, 11vw, 4.5rem);
+    font-size: clamp(1.8rem, 9.5vw, 3.8rem);
   }
 
   .footer-bottom-bar {
