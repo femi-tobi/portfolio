@@ -812,3 +812,47 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 })();
 
+// Gander-Style Footer Eye Tracking Controller
+(function initGanderEyes() {
+  const eyes = document.querySelectorAll('.letter-eye');
+  if (eyes.length === 0) return;
+
+  function trackEyes(mouseX, mouseY) {
+    eyes.forEach(eye => {
+      const pupil = eye.querySelector('.letter-pupil');
+      if (!pupil) return;
+
+      const rect = eye.getBoundingClientRect();
+      const eyeCenterX = rect.left + rect.width / 2;
+      const eyeCenterY = rect.top + rect.height / 2;
+
+      // Calculate angle and distance to cursor
+      const deltaX = mouseX - eyeCenterX;
+      const deltaY = mouseY - eyeCenterY;
+      const angle = Math.atan2(deltaY, deltaX);
+      const distance = Math.hypot(deltaX, deltaY);
+
+      // Max radius pupil can wander from the center of the eye
+      const maxDist = parseFloat(eye.dataset.maxDist) || (rect.width * 0.28);
+      const moveDist = Math.min(distance * 0.08, maxDist);
+
+      const pupilX = Math.cos(angle) * moveDist;
+      const pupilY = Math.sin(angle) * moveDist;
+
+      pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+    });
+  }
+
+  // Mouse move listener across window
+  window.addEventListener('mousemove', (e) => {
+    trackEyes(e.clientX, e.clientY);
+  }, { passive: true });
+
+  // Touch move listener for mobile devices
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      trackEyes(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+})();
+
