@@ -512,13 +512,23 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   padding: 6rem 1.5rem 4rem;
   max-width: var(--container-width);
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1);
+  opacity: 1; /* Fallback so content is never blank */
+  transform: none;
   background: transparent;
   box-shadow: none;
   border-radius: 0;
   margin-bottom: 0;
+}
+@media (min-width: 769px) {
+  .section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1);
+  }
+  .section.show {
+    opacity: 1;
+    transform: none;
+  }
 }
 .section.show{opacity:1;transform:none;}
 .section.alt{
@@ -1675,13 +1685,11 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
 .faq-item-body {
   padding: 0 2rem 1.5rem 2rem;
   color: var(--text-muted);
+  display: none;
+  line-height: 1.6;
 }
 .faq-item.active .faq-item-body {
   color: rgba(255,255,255,0.9);
-}
-  display: none;
-  color: #eee;
-  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
@@ -1693,6 +1701,7 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
   /* Contact & FAQ */
   .contact-split {
     flex-direction: column;
+    gap: 2rem;
   }
   .form-row {
     flex-direction: column;
@@ -1702,11 +1711,13 @@ canvas#starfield{position:fixed;inset:0;z-index:-1;filter:blur(1.5px) brightness
     margin-bottom: 1.5rem;
   }
   .faq-redesign {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 2.5rem;
+    padding: 3.5rem 1rem 2rem 1rem;
   }
   .faq-header-left, .faq-accordion-right {
-    max-width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 

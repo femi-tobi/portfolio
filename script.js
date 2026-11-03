@@ -1,5 +1,11 @@
 // Section reveal
-const observer = new IntersectionObserver(entries => { entries.forEach(ent => { if (ent.isIntersecting) { ent.target.classList.add('show'); } }) }, { threshold: 0.2 });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(ent => {
+    if (ent.isIntersecting) {
+      ent.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
 
 // Theme detection & toggle
