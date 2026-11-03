@@ -277,11 +277,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Welcome Modal Logic
+// Welcome Modal Logic with Persona Personalization
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeModal = document.getElementById('welcome-modal');
   const skipBtn = document.querySelector('.welcome-skip');
   const welcomeBtns = document.querySelectorAll('.welcome-btn');
+
+  const headlineEl = document.querySelector('.intro-headline');
+  const greetingEl = document.querySelector('.intro-greeting');
+  const leftPill = document.querySelector('.left-pill');
+  const heroBgText = document.querySelector('.hero-bg-text');
+
+  // Dynamic persona copy configuration
+  const personaData = {
+    all: {
+      greeting: "Hey, I'm Oluwatobi.",
+      headline: "Product, UI/UX &<br>Brand Design",
+      pill: "Web design",
+      bgText: "DESIGNER"
+    },
+    uiux: {
+      greeting: "Hey there! Looking for intuitive experiences?",
+      headline: "UI/UX & Product<br>Interface Design",
+      pill: "UI/UX Design",
+      bgText: "PRODUCT"
+    },
+    graphics: {
+      greeting: "Welcome! Looking for memorable visuals?",
+      headline: "Brand Identity &<br>Graphic Direction",
+      pill: "Visual Branding",
+      bgText: "CREATIVE"
+    },
+    web: {
+      greeting: "Hello! Looking to launch high-performance web systems?",
+      headline: "Modern Website Design<br>& Web Systems",
+      pill: "Web Development",
+      bgText: "DEVELOP"
+    }
+  };
+
+  function updateHeroCopy(target) {
+    const data = personaData[target] || personaData.all;
+    if (headlineEl) headlineEl.innerHTML = data.headline;
+    if (greetingEl) greetingEl.textContent = data.greeting;
+    if (leftPill) leftPill.textContent = data.pill;
+    if (heroBgText) heroBgText.textContent = data.bgText;
+  }
 
   function closeWelcomeModal() {
     if (welcomeModal) {
@@ -293,21 +334,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (skipBtn) {
-    skipBtn.addEventListener('click', closeWelcomeModal);
+    skipBtn.addEventListener('click', () => {
+      updateHeroCopy('all');
+      closeWelcomeModal();
+    });
   }
 
   welcomeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.getAttribute('data-target');
+      updateHeroCopy(target);
       closeWelcomeModal();
 
-      // Wait for modal to fade out, then scroll and filter
+      // Wait for modal to fade out, then scroll smoothly to projects
       setTimeout(() => {
         const projectsSection = document.getElementById('projects');
         if (projectsSection) {
           projectsSection.scrollIntoView({ behavior: 'smooth' });
 
-          // Click the correct filter button
+          // Click the corresponding filter button
           const filterBtn = document.querySelector(`.filter-btn[data-cat="${target}"]`);
           if (filterBtn) {
             filterBtn.click();
@@ -689,47 +734,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mm = gsap.matchMedia();
 
-    // Desktop/Tablet Cinematic Animation
+    // Desktop/Tablet Smooth Natural Hero Scroll
     mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-new",
           start: "top top",
-          end: "+=200%",
+          end: "+=120%",
           pin: true,
-          scrub: 1,
+          scrub: 0.6,
         }
       });
 
-      // Step 1: Fade out UI elements and scale bg text
-      heroTl.to(".intro-text-bottom", { opacity: 0, x: -50, duration: 1 }, 0)
-        .to(".left-pill", { opacity: 0, x: -50, rotation: -20, duration: 1 }, 0)
-        .to(".right-card", { opacity: 0, x: 50, y: 50, duration: 1 }, 0)
-        .to(".hero-bg-text", { scale: 1.5, x: 100, opacity: 0.01, duration: 4 }, 0);
-
-      // Step 2: Expand the portrait arch to match navbar width
-      heroTl.to(".hero-center-arch", {
-        width: "min(90vw, 1100px)",
-        height: "70vh",
-        borderRadius: "40px",
-        duration: 3,
-        ease: "power2.inOut"
-      }, 0.5);
-
-      // Step 3: Parallax zoom the portrait image itself
-      heroTl.to(".profile-pic-arch", {
-        scale: 1.15,
-        borderRadius: "40px",
-        duration: 3,
-        ease: "power2.inOut"
-      }, 0.5);
-
-      // Step 4: Fade in a dark overlay to transition smoothly to the next section
-      heroTl.to(".hero-overlay", {
-        opacity: 1,
-        duration: 1,
-        ease: "power1.in"
-      }, 2.5);
+      // Direct smooth expansion without shrinking or closing
+      heroTl.to(".intro-text-bottom", { opacity: 0, y: -30, duration: 1 }, 0)
+        .to(".left-pill", { opacity: 0, scale: 0.8, duration: 0.8 }, 0)
+        .to(".right-card", { opacity: 0, scale: 0.8, duration: 0.8 }, 0)
+        .to(".hero-bg-text", { y: -60, opacity: 0, duration: 2 }, 0)
+        .to(".hero-center-arch", {
+          width: "min(92vw, 1140px)",
+          height: "75vh",
+          borderRadius: "32px",
+          duration: 2.5,
+          ease: "power2.out"
+        }, 0)
+        .to(".profile-pic-arch", {
+          borderRadius: "32px",
+          scale: 1.05,
+          duration: 2.5,
+          ease: "power2.out"
+        }, 0)
+        .to(".hero-overlay", {
+          opacity: 0.9,
+          duration: 1,
+          ease: "power1.inOut"
+        }, 1.8);
     });
 
     // Mobile / Reduced Motion Fallback
@@ -738,15 +777,16 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
           trigger: ".hero-new",
           start: "top top",
-          end: "+=100%",
+          end: "+=80%",
           pin: true,
-          scrub: 1,
+          scrub: 0.6,
         }
       });
 
-      heroTl.to(".intro-text-bottom, .left-pill, .right-card", { opacity: 0, duration: 1 }, 0)
-        .to(".hero-center-arch", { scale: 1.2, duration: 2 }, 0)
-        .to(".hero-overlay", { opacity: 1, duration: 1 }, 1);
+      heroTl.to(".intro-text-bottom, .left-pill, .right-card", { opacity: 0, duration: 0.8 }, 0)
+        .to(".hero-center-arch", { width: "95vw", height: "60vh", borderRadius: "24px", duration: 1.5, ease: "power2.out" }, 0)
+        .to(".profile-pic-arch", { borderRadius: "24px", duration: 1.5, ease: "power2.out" }, 0)
+        .to(".hero-overlay", { opacity: 0.9, duration: 0.8 }, 1);
     });
 
     // Stacked Cards Deck Scaling Parallax
