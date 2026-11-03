@@ -40,7 +40,6 @@ body {
   width: 100%;
   overflow-x: clip;
 }
-}
 [data-theme="dark"] body{
   background: var(--bg);
 }
