@@ -2474,6 +2474,208 @@ canvas#starfield {
   }
 }
 
+/* ========================================================
+   HONORS & AWARDS SECTION
+   ======================================================== */
+.awards-section {
+  background: transparent;
+  padding: 6rem 1.5rem 5rem 1.5rem;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.award-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1.8rem;
+  padding: 2.2rem 2rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: var(--shadow);
+}
+
+.award-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* Card Metallic Themes */
+.award-silver {
+  border-color: rgba(148, 163, 184, 0.35);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(148, 163, 184, 0.06) 100%);
+}
+.award-silver:hover {
+  border-color: rgba(203, 213, 225, 0.8);
+  box-shadow: 0 20px 40px rgba(148, 163, 184, 0.2);
+}
+
+.award-gold {
+  border-color: rgba(255, 167, 0, 0.45);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(255, 167, 0, 0.08) 100%);
+}
+.award-gold:hover {
+  border-color: rgba(255, 167, 0, 0.85);
+  box-shadow: 0 20px 40px rgba(255, 167, 0, 0.22);
+}
+
+.award-bronze {
+  border-color: rgba(249, 115, 22, 0.35);
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(249, 115, 22, 0.06) 100%);
+}
+.award-bronze:hover {
+  border-color: rgba(249, 115, 22, 0.7);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.18);
+}
+
+/* Header & Medal Badge */
+.award-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.award-medal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 99px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.award-medal-badge.gold-badge {
+  background: rgba(255, 167, 0, 0.15);
+  color: #FFA700;
+  border-color: rgba(255, 167, 0, 0.4);
+}
+
+.award-year {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* Body & Icons */
+.award-body {
+  flex: 1;
+}
+
+.award-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.silver-glow {
+  background: rgba(148, 163, 184, 0.14);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.gold-glow {
+  background: rgba(255, 167, 0, 0.14);
+  color: #FFA700;
+  border: 1px solid rgba(255, 167, 0, 0.35);
+}
+
+.bronze-glow {
+  background: rgba(249, 115, 22, 0.14);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.award-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.award-organization {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: 1rem;
+}
+
+.award-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+}
+
+/* Footer Tags */
+.award-footer {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.award-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.award-tag.gold-tag {
+  color: #FFA700;
+  background: rgba(255, 167, 0, 0.08);
+  border-color: rgba(255, 167, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .awards-section {
+    padding: 4rem 1rem 3rem 1rem;
+  }
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .award-card {
+    padding: 1.8rem 1.4rem;
+    border-radius: 1.4rem;
+  }
+  .award-title {
+    font-size: 1.25rem;
+  }
+}
+
 .gander-footer {
   display: block;
 }
