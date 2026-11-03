@@ -48,18 +48,90 @@ if (themeToggle) {
   });
 }
 
-// Filter projects
+// Filter projects (UI/UX & Web = Sticky Cards Deck; Graphics = Sliding Carousel)
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card, .project-h-card, .deck-card');
+const projectCards = document.querySelectorAll('.deck-card');
+const deckContainer = document.querySelector('.cards-deck-container');
+const graphicsCarousel = document.getElementById('graphicsCarouselContainer');
+
 filterBtns.forEach(btn => btn.addEventListener('click', () => {
   filterBtns.forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const cat = btn.dataset.cat;
-  projectCards.forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
-    if (card.classList.contains('project-card') && card.style.display === 'flex') card.style.display = 'block';
-  });
+
+  if (cat === 'graphics') {
+    // Show sliding carousel for graphics
+    if (deckContainer) deckContainer.style.display = 'none';
+    if (graphicsCarousel) graphicsCarousel.style.display = 'block';
+  } else {
+    // Show sticky stacked deck for uiux, web, app, all
+    if (graphicsCarousel) graphicsCarousel.style.display = 'none';
+    if (deckContainer) deckContainer.style.display = 'flex';
+    projectCards.forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+    });
+  }
+
+  // Refresh ScrollTrigger to update pin/scroll calculations
+  if (typeof ScrollTrigger !== 'undefined') {
+    setTimeout(() => ScrollTrigger.refresh(), 100);
+  }
 }));
+
+// Graphics Carousel Slide-to-Left Controller
+(function initGraphicsCarousel() {
+  const slides = document.querySelectorAll('.graphics-card-item');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('graphicsPrevBtn');
+  const nextBtn = document.getElementById('graphicsNextBtn');
+  let currentIndex = 0;
+
+  if (slides.length === 0) return;
+
+  function updateCarousel(newIndex) {
+    currentIndex = (newIndex + slides.length) % slides.length;
+    slides.forEach((slide, idx) => {
+      slide.classList.remove('active', 'prev', 'next');
+      if (idx === currentIndex) {
+        slide.classList.add('active');
+      } else if (idx === (currentIndex - 1 + slides.length) % slides.length) {
+        slide.classList.add('prev');
+      } else if (idx === (currentIndex + 1) % slides.length) {
+        slide.classList.add('next');
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentIndex);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const targetIdx = parseInt(dot.dataset.index, 10);
+      updateCarousel(targetIdx);
+    });
+  });
+
+  // Clicking on peeking side cards to slide directly
+  slides.forEach((slide, idx) => {
+    slide.addEventListener('click', () => {
+      if (slide.classList.contains('prev') || slide.classList.contains('next')) {
+        updateCarousel(idx);
+      }
+    });
+  });
+
+  // Initial setup
+  updateCarousel(0);
+})();
 
 // Project modal
 const modal = document.getElementById('projectModal');
@@ -269,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
 
 // Scroll-to-top button logic
 const scrollToTopBtn = document.getElementById('scrollToTop');
@@ -692,3 +765,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
